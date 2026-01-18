@@ -1,0 +1,147 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+const allPosts = Object.values(
+  import.meta.glob("./posts/*.md", { eager: true }),
+);
+
+const countries = [
+  {
+    country: "USA",
+    flag: "us",
+    blurb:
+      "I'm from here, but I put it on the list because I road tripped my own country quite a bit :)",
+  },
+  {
+    country: "Mexico",
+    flag: "mx",
+    blurb:
+      "My parents are from here and I was born near the border, so yeah...",
+  },
+  {
+    country: "Canada",
+    flag: "ca",
+    blurb:
+      "Would say this place was the start of my love for hiking. Banff, Jasper & Yoho~ Chef's kiss.",
+  },
+  {
+    country: "Belize",
+    flag: "bz",
+    blurb: "Where I first started my journey of scuba diving.",
+  },
+  {
+    country: "Guatemala",
+    flag: "gt",
+    blurb:
+      "My first time ever seeing a volcano explode in front of me above the explodes is the one of the most magaical memories I have.",
+  },
+  {
+    country: "Costa Rica",
+    flag: "cr",
+    blurb:
+      "It rained on me the while time I was here, though the colorful birds were so pretty.",
+  },
+  {
+    country: "Argentina",
+    flag: "ar",
+    blurb:
+      "Patagona with my pal Saul was cool, got to return back though because it felt to rushed.",
+  },
+  {
+    country: "Chile",
+    flag: "cl",
+    blurb: "Okay, okay, I just came here for just one day for Torres de Paine.",
+  },
+  {
+    country: "Vietnam",
+    flag: "vn",
+    blurb:
+      "First country to start my asia tour in. Mountains made of limestone and riding on scooters was the way.",
+  },
+  {
+    country: "Laos",
+    flag: "la",
+    blurb: "Didn't expect this place to be chill.",
+  },
+  {
+    country: "Cambodia",
+    flag: "kh",
+    blurb: "Mango Shakes and riding my scooter though the ruins of Angkor Wat.",
+  },
+  {
+    country: "Thailand",
+    flag: "th",
+    blurb: "No Comment.",
+  },
+  {
+    country: "Kyrgyzstan",
+    flag: "kg",
+    blurb: "By far the most beautiful country I visited.",
+  },
+  {
+    country: "Tajikistan",
+    flag: "tj",
+    blurb: "",
+  },
+  {
+    country: "Uzbekistan",
+    flag: "uz",
+    blurb: "",
+  },
+  {
+    country: "Pakistan",
+    flag: "pk",
+    blurb: "",
+  },
+  {
+    country: "United Arab Emirates",
+    flag: "ae",
+    blurb: "",
+  },
+  {
+    country: "Nepal",
+    flag: "np",
+    blurb: "",
+  },
+  {
+    country: "India",
+    flag: "in",
+    blurb: "",
+  },
+  {
+    country: "Malaysia",
+    flag: "my",
+    blurb: "",
+  },
+  {
+    country: "Philippines",
+    flag: "ph",
+    blurb: "",
+  },
+];
+---
+
+<BaseLayout pageTitle="Blog">
+  <p>
+    I'll be posting thoughts here and perhaps experiances regarding things
+    travel.
+  </p>
+
+  <p>
+    Reflecting back, I've been through quite a few countries (humble self brag,
+    but know there is always a bigger fish).
+  </p>
+
+  <section id="blog-flags">
+    {countries.map((country) => <span class={`fi fi-${country.flag}`} />)}
+  </section>
+
+  <ul>
+    {
+      allPosts.map((post: any) => (
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

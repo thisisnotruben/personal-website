@@ -1,0 +1,51 @@
+---
+import type { WebLink } from "@scripts/types";
+import {
+  House,
+  User,
+  Presentation,
+  Briefcase,
+  NotebookText,
+} from "lucide-astro";
+
+const navItems: WebLink[] = [
+  {
+    name: "Home",
+    href: "/",
+    icon: House,
+  },
+  {
+    name: "About",
+    href: "/about/",
+    icon: User,
+  },
+  {
+    name: "Projects",
+    href: "/projects/",
+    icon: Presentation,
+  },
+  {
+    name: "Resume",
+    href: "/resume/",
+    icon: Briefcase,
+  },
+  // {
+  //   name: "Blog",
+  //   href: "/blog/",
+  //   icon: NotebookText,
+  // },
+];
+---
+
+<header>
+  <nav>
+    {
+      navItems.map((item) => (
+        <a href={item.href}>
+          <item.icon class="link-icon" />
+          {item.name}
+        </a>
+      ))
+    }
+  </nav>
+</header>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import An8BitRpg from "@pages/projects/an8BitRpg.astro";
+import StarryNight from "@pages/projects/starryNight.astro";
+import StarshipInvasion from "@pages/projects/starshipInvasion.astro";
+import TidesOfWar from "@pages/projects/tidesOfWar.astro";
+import TidesOfWarTool from "@pages/projects/tidesOfWarTool.astro";
+import Website from "@pages/projects/website.astro";
+import { projects } from "@scripts/data";
+---
+
+<BaseLayout pageTitle="My projects">
+    <ul>
+        {
+            Object.entries(projects).map((entry) => (
+                <li>
+                    <a href={entry[1].id}>{entry[1].title}</a>
+                </li>
+            ))
+        }
+    </ul>
+
+    <!-- NOTE: make sure the 'order' in 
+     @scripts/data.projects is the same here,
+     need to find a better way to do this -->
+
+    <An8BitRpg />
+    <Website />
+    <StarshipInvasion />
+    <StarryNight />
+    <TidesOfWar />
+    <TidesOfWarTool />
+</BaseLayout>

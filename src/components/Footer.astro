@@ -1,0 +1,38 @@
+---
+import type { WebLink } from "@scripts/types";
+import { Linkedin, Github, Gamepad2, Mail } from "lucide-astro";
+
+const footerItems: WebLink[] = [
+  {
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/thisisnotruben19961004/",
+    icon: Linkedin,
+  },
+  {
+    name: "Github",
+    href: "https://github.com/thisisnotruben",
+    icon: Github,
+  },
+  {
+    name: "Itch.io",
+    href: "https://thisisnotruben.itch.io/",
+    icon: Gamepad2,
+  },
+  {
+    name: "Email me",
+    href: "mailto:rubenar1996@gmail.com",
+    icon: Mail,
+  },
+];
+---
+
+<footer>
+  {
+    footerItems.map((item) => (
+      <a href={item.href} target="_blank">
+        <item.icon class="link-icon" />
+        {item.name}
+      </a>
+    ))
+  }
+</footer>

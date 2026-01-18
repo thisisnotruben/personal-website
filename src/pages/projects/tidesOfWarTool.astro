@@ -1,0 +1,27 @@
+---
+import Entry from "@components/Entry.astro";
+import { projects } from "@scripts/data";
+---
+
+<Entry data={projects.tides_of_war_tools}>
+    <div slot="column-content">
+        <p>
+            Here's a tool I made to aid in development of the game Tides of War.
+            It was made using python coupled with the Qt-Framework for the
+            front-end GUI. The GUI was made in
+            <a
+                href="https://www.qt.io/development/tools/qt-creator-ide"
+                target="_blank"
+                >QT-Creator
+            </a> and it did help in the creation of some standardized data templates
+            I was making for the game.
+        </p>
+        <p>
+            The main takeaway from this project was to tinker around using the
+            QT-framework. I had lots of fun, but unfortunately in retrospect it
+            could've been better. What I would do different toady would be to
+            containerize the program so I can at least run it again. Other than
+            that would to seperate the code into a MVC design.
+        </p>
+    </div>
+</Entry>

@@ -1,0 +1,72 @@
+---
+import type { EntryData } from "@scripts/types";
+
+interface Props {
+    data: EntryData;
+    imgWidth?: number;
+    showHeader?: boolean;
+}
+
+import { Image } from "astro:assets";
+const { data, imgWidth = 256, showHeader = true } = Astro.props;
+---
+
+<section id={data.id.slice(1)}>
+    <div class="grid project-entry">
+        <div class="column card transition-slide-right">
+            {
+                data.icon != null && (
+                    <Image
+                        src={data.icon}
+                        alt={data.title + " cover"}
+                        width={imgWidth}
+                    />
+                )
+            }
+            <table>
+                <tbody>
+                    {
+                        Object.keys(data.table).map((key) => (
+                            <tr>
+                                <td class="row-key">{key}</td>
+                                <td>
+                                    {Array.isArray(data.table[key]) ? (
+                                        data.table[key].map((value) => (
+                                            <span>
+                                                {<Fragment set:html={value} />}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        <a
+                                            href={data.table[key].link}
+                                            target="_blank"
+                                        >
+                                            {
+                                                <Fragment
+                                                    set:html={
+                                                        data.table[key].text
+                                                    }
+                                                />
+                                            }
+                                        </a>
+                                    )}
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="column transition-slide-left">
+            {
+                showHeader && (
+                    <h3 class="project-header transition-slide-left">
+                        {data.title}
+                    </h3>
+                )
+            }
+            <slot name="column-content" />
+        </div>
+    </div>
+    <slot name="under-content" />
+</section>

@@ -1,0 +1,153 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const languages = ["Python", "TypeScript", "SQL", "Bash", "Java", "GDScript"];
+const platforms = [
+    "IBM API Connect",
+    "IBM Datapower",
+    "IBM Websphere Liberty",
+    "Red Hat Openshift",
+    "Azure APIM",
+    "ServiceNow",
+    "PostgreSQL",
+    "Docker",
+];
+const frameworks = ["Java Spring-boot", "Angular Js", "Astro"];
+const technologies = ["Kubernetes", "Qt-framework", "OpenSSL", "Git"];
+const methodologies = ["Agile", "Scrum"];
+---
+
+<BaseLayout pageTitle="Resume">
+    <article id="resume">
+        <h2>Professional Experiance</h2>
+        <section>
+            <h3>General Motors</h3>
+            <section class="resume-job-header transition-slide-left">
+                <h4>Full-Stack Software Developer</h4>
+                <p>August 2023 - January 2025</p>
+            </section>
+            <ul class="transition-slide-right">
+                <li>
+                    Development team tasked with providing uniform reusable UI
+                    components with common back-end functionality to entire
+                    company for commonly performed tasks.
+                </li>
+                <li>
+                    Hands on development/debugging of multiple applications
+                    sticking to agile methodologies.
+                </li>
+                <li>
+                    Development and planning of applications utilizing Java
+                    Spring-boot and/or Angular Js.
+                </li>
+                <li>
+                    Develop API's, automating firewall and load-balancer service
+                    requests within company.
+                </li>
+                <li>
+                    Performance enhance components to provide more stable and
+                    acceptable usage according to SLA.
+                </li>
+                <li>
+                    Tasked with migrating custom AngularJs/Java Spring-boot
+                    application of a ticketing system to ServiceNow.
+                    Successfully released the first iteration of the ServiceNow
+                    Application.
+                </li>
+            </ul>
+
+            <section class="resume-job-header transition-slide-left">
+                <h4>Technical Support Engineer</h4>
+                <p>June 2021 - October 2024</p>
+            </section>
+            <ul class="transition-slide-right">
+                <li>
+                    Administrative/Operations based team in which we provided
+                    IBM APIC as PaaS to clients inside GM. Duties ranged from
+                    keeping the PaaS operational/upgraded to maintain SLA, to
+                    providing on-call support to our clients 24/7 to assist with
+                    deployments/critical-issues.
+                </li>
+                <li>
+                    Daily hands-on in API management in regards to
+                    consultations/development in IBM APIC/Azure APIM.
+                </li>
+                <li>
+                    Manage PKI by creating/installing X.509 certificates on our
+                    distributed servers.
+                </li>
+                <li>Administer Websphere Liberty & OpenID servers.</li>
+                <li>
+                    Architecturally plan solutions of our migration efforts
+                    because due to environment versioning.
+                </li>
+                <li>
+                    Administrate our PaaS on Red Hat Openshift environment
+                    (Kubernetes).
+                </li>
+                <li>
+                    Support applications after-hours from mundane to business
+                    critical issues.
+                </li>
+            </ul>
+        </section>
+
+        <h2>Education</h2>
+        <section class="grid-resume transition-slide-left">
+            <section class="cell-resume">
+                <h3>University of Arizona</h3>
+                <ul class="resume-education">
+                    <li>Bachelor of Science - BS, Computer Science</li>
+                    <li>2019 - 2021</li>
+                    <li>Minored in Spanish and Cybersecurity</li>
+                </ul>
+            </section>
+
+            <section class="cell-resume">
+                <h3>Arizona Western College</h3>
+                <ul class="resume-education">
+                    <li>Associate of Arts and Sciences - AAS</li>
+                    <li>2016 - 2019</li>
+                </ul>
+            </section>
+        </section>
+
+        <h2>Skills</h2>
+        <section class="grid-resume transition-slide-left">
+            <section class="cell-resume">
+                <h3>Languages</h3>
+                <ul>{languages.map((language) => <li>{language}</li>)}</ul>
+            </section>
+
+            <section class="cell-resume">
+                <h3>Platforms</h3>
+                <ul>{platforms.map((platform) => <li>{platform}</li>)}</ul>
+            </section>
+
+            <section class="cell-resume">
+                <h3>Frameworks</h3>
+                <ul>{frameworks.map((framework) => <li>{framework}</li>)}</ul>
+            </section>
+
+            <section class="cell-resume">
+                <h3>Technologies</h3>
+                <ul>
+                    <li>API management</li>
+                    <ul>
+                        <li>Swagger</li>
+                        <li>OpenAPI</li>
+                        <li>WSDL</li>
+                    </ul>
+                    {technologies.map((technology) => <li>{technology}</li>)}
+                </ul>
+            </section>
+
+            <section class="cell-resume">
+                <h3>Methodologies</h3>
+                <ul>
+                    {methodologies.map((methodology) => <li>{methodology}</li>)}
+                </ul>
+            </section>
+        </section>
+    </article>
+</BaseLayout>

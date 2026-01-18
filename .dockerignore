@@ -1,0 +1,11 @@
+.astro
+.git
+dist
+node_modules
+
+.dockerignore
+.gitignore
+Dockerfile
+package-lock.json
+README.md
+*.log

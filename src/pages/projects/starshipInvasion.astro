@@ -1,0 +1,88 @@
+---
+import Entry from "@components/Entry.astro";
+import { projects } from "@scripts/data";
+---
+
+<Entry data={projects.starship_invasion}>
+    <div slot="column-content">
+        <p>
+            Now for something I'm actually proud of and took about four months
+            of development. I present to you this Doom-like inspired shooter in
+            which I feel is quite the enjoyable experiance. As a one-man-team I
+            like the art syle I took this on, a pixel-art view projected to a 3D
+            space.
+        </p>
+        <p>
+            When creating this game I took on many different inspirations from
+            past video games I've played and movies I watch. Them being:
+        </p>
+        <ul>
+            <li>
+                <a href="https://doom.fandom.com/wiki/Doom" target="_blank"
+                    >Doom
+                </a>
+                <p>
+                    It's obvious that the gameplay mechanics of Doom is
+                    something I wanted to replicate. Though looking back after
+                    my published game. If I were to change one thing right now
+                    about my game: it would have a cooldown for shooting the gun
+                    as sort of an overheating mechanic so you don't spam the
+                    shoot action.
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div slot="under-content">
+        <ul>
+            <li>
+                <a
+                    href="https://deadspace.fandom.com/wiki/Dead_Space_(2008)"
+                    target="_blank"
+                >
+                    Dead Space
+                </a>
+                <p>
+                    The inspiration I got is the objective marker, I loved that
+                    simple mechanic in the game and transferred it to mine.
+                </p>
+            </li>
+            <li>
+                <a
+                    href="https://starcraft.fandom.com/wiki/StarCraft:_Brood_War"
+                    target="_blank"
+                >
+                    Starcraft
+                </a>
+                <p>
+                    No mechanic taken from this RTS game, however I'd like to
+                    showcase this cinematic video in which I took great
+                    inspiration from in the form of atmosphere that I desired to
+                    replicate. Everything about that cinematic is a chef's kiss.
+                    The narrow corridors and lighting in this cinematic is
+                    exactly what I wanted to convey.
+                </p>
+                <section class="center-container">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/o7pifjPrBqI?si=W3pLhJNmC1aQbD1S"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    >
+                    </iframe>
+                </section>
+            </li>
+            <p>
+                Reflecting on my game and Strarcraft, improvements would be
+                adding more Sfx and having more enemy units that have a specific
+                role in which they 'deal' with you. I loved the graphics and the
+                lighting I put in the game though sometimes playing in this
+                pixel-art view, I think would it be better in a voxel format
+                instead?
+            </p>
+        </ul>
+    </div>
+</Entry>

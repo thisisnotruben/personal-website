@@ -1,0 +1,35 @@
+---
+import Entry from "@components/Entry.astro";
+import { projects } from "@scripts/data";
+---
+
+<Entry data={projects.tides_of_war}>
+    <div slot="column-content">
+        <p>
+            This is my first project into game development to where I let my
+            imagination run wild and the project came to a hault due to scope
+            creep and not having experiance. It was intended to be an RPG game
+            with four playable levels that are in different biomes:
+        </p>
+        <ul>
+            <li>Forest</li>
+            <li>Swampland</li>
+            <li>Desert</li>
+            <li>Mystical forset</li>
+            <li>Evil lands</li>
+        </ul>
+        <p>
+            Each biomes has their own unique units that were created by me.
+            Though I cherish my art creations, they're not up to standards in
+            creating a "stimulating" visual.
+        </p>
+    </div>
+    <div slot="under-content">
+        <p>
+            I'm embarrassed to say that this unreleased project took over two
+            years of development. However, with that time being spent a
+            recklessly, it was indeed a learning process and introduction to
+            this space.
+        </p>
+    </div>
+</Entry>
