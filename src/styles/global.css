@@ -79,6 +79,7 @@ footer a:active {
   padding: 0.5rem;
   border: 0.1rem solid black;
   margin: 1rem;
+  float: right;
 }
 
 table {

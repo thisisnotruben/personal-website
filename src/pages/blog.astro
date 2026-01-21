@@ -1,8 +1,5 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-const allPosts = Object.values(
-  import.meta.glob("./posts/*.md", { eager: true }),
-);
 
 const countries = [
   {
@@ -134,14 +131,4 @@ const countries = [
   <section id="blog-flags">
     {countries.map((country) => <span class={`fi fi-${country.flag}`} />)}
   </section>
-
-  <ul>
-    {
-      allPosts.map((post: any) => (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
-      ))
-    }
-  </ul>
 </BaseLayout>

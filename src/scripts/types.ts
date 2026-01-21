@@ -7,7 +7,7 @@ export type Project = {
 export type EntryData = {
     title: string;
     id: string;
-    icon: ImageMetadata;
+    cover: ImageMetadata;
     table: Table;
 };
 

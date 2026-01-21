@@ -3,7 +3,6 @@ A simple website that is a blog of me.
 
 ## Docker
 ```shell
-# to build docker
 docker build -t my_website .
 ```
 
@@ -14,6 +13,7 @@ docker build -t my_website .
 #### Integrations
 - [lucide](https://lucide.dev/)
 - [swup](https://swup.js.org/)
+- [mdx](https://mdxjs.com/docs/what-is-mdx/)
 
 ### Packages
 - [flag-icons](https://flagicons.lipis.dev/)
