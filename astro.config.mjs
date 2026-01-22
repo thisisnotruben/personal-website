@@ -2,9 +2,8 @@ import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
 import swup from '@swup/astro';
 import mdx from '@astrojs/mdx';
-import rehypeFormat from 'rehype-format';
-import inspectUrls from '@jsdevtools/rehype-url-inspector'
-;
+import rehypeExternalLinks from 'rehype-external-links';
+
 export default defineConfig({
   adapter: node({
     mode: 'standalone',
@@ -15,8 +14,6 @@ export default defineConfig({
     }),
     mdx({
       gfm: true,
-      smartypants: true,
-      remarkPlugins: [],
-      rehypePlugins: [inspectUrls, rehypeFormat],
+      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: [] }]],
     })],
 });

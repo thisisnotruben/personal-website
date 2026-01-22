@@ -6,8 +6,8 @@ import { type EntryData } from "@scripts/types";
 import { Bike, Computer, Mountain, PersonStanding } from "lucide-astro";
 
 const profile: EntryData = {
-  title: "Biobiography",
-  id: "about",
+  title: "",
+  id: "#about",
   cover: Cover,
   table: {
     Name: ["Ruben Alvarez Reyes"],
@@ -18,29 +18,27 @@ const profile: EntryData = {
       '<span class="fi fi-us"></span> English (en)',
       '<span class="fi fi-mx"></span> Spanish (es)',
     ],
-    Currently: ['<span class="fi fi-ph"></span> Traveling'],
   },
 };
 ---
 
 <BaseLayout pageTitle="About Me">
-  <Entry data={profile} imgWidth={300} showHeader={false}>
+  <Entry data={profile} imgWidth={300}>
     <p>
       Hello, I'm from the state of Arizona and grew up near the border of Mexico
       in small town called
       <a href="https://en.wikipedia.org/wiki/Somerton,_Arizona" target="_blank"
         >Somerton</a
-      >. Being near the border and with my family coming from Mexico, my first
+      >. Being near the border and my family coming from Mexico, my first
       language is English (bet you didn't see that coming) and my second
       language is Spanish.
     </p>
     <Bike />
     <p>
-      With not much to do there I took an interest in cycling to explore the
-      area around my parts; raced a bit too and it was all my ambitions as a
-      teeneager to be a pro-cyclist, but we're not discussing that here...
-      Unknowingly having this curiousty of exploring seeded my mindset of my
-      future (current) mindset of: <em
+      With not much to do there I took an interest in cycling to explore my
+      area, raced a bit too and it was all my ambitions as a teeneager to be a
+      pro-cyclist but alas... Unknowingly having this curiousty of exploring
+      seeded my future and current mindset of: <em
         >"Let's see what's in this side of the world and if I get too tired I
         can always cycle back home"</em
       >. I suppose that can be taken metaphorical and literal as well.
@@ -49,21 +47,15 @@ const profile: EntryData = {
     <p>
       I as well ventured into programming to keep my mind busy and sharp. I
       first started my journey with python making small projects: GUI's, data
-      visualizations, pretty much tinkering. Thereafter started a journey in
-      making video games as a hobby with a rough start, but the passion still
-      lives!
-    </p>
-    <p>
-      All my childhood activities I still carry the torch in different ways,
-      where I use to be on the bicycle twenty hours a week I now hike but not to
-      that extent.
+      visualizations and pretty much just tinkering. Thereafter started a
+      journey in making video games as a hobby with a rough start due project
+      scope, but learned a few lessons along the way.
     </p>
     <Mountain />
     <p>
-      Taking a walk through nature or the word for it: <i>"hiking"</i>, has been
-      well honestly some of the most enjoyable things in life for me. Whether
-      taking a walk around Hyde Park in Austin Texas or going through the
-      mountains of
+      I've been hiking as of lately and it has been well honestly some of the
+      most enjoyable things in life for me. Whether taking a walk around Hyde
+      Park in Austin Texas or going through the mountains of
       <a href="https://en.wikipedia.org/wiki/Tian_Shan" target="_blank"
         >Tien Shan</a
       >,
@@ -72,17 +64,17 @@ const profile: EntryData = {
       >, and
       <a href="https://en.wikipedia.org/wiki/Himalayas" target="_blank"
         >Himalayas</a
-      > has been absolutely wonderful. I cannot stress enough just the simple beauty
-      of walking outisde has brought joy and memories to me. I point my finger to
-      riding my bicycle as a teenager to lead me to these beautiful places.
+      > it has been absolutely wonderful. I cannot stress just enough the simple
+      beauty of walking outisde has brought joy and memories to me. I point my finger
+      to riding my bicycle as a teenager to lead me to these beautiful places.
     </p>
     <PersonStanding />
     <p>
-      Lastly, latin dancing in Sala and Bachata as been an integral part of my
+      Lastly, latin dancing Salsa and Bachata as been an integral part of my
       life. Unfortunately, I'm not at a skill level to where my time in it
-      reflects (whoops). With that being said, I've met so many people and made
-      friends from there. Anyways, while you read this... maybe you can dance
-      away to another section of this website?
+      reflects (whoops). However with that being said, I've met so many people
+      and made friends from there. Anyways, while you read this... maybe you can
+      dance away to another section of this website?
     </p>
   </Entry>
 </BaseLayout>

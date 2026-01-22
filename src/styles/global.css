@@ -63,28 +63,37 @@ footer a:active {
 }
 
 /* Entry */
-.grid {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: start;
+.entry {
+  overflow: auto;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
+.entry+.entry {
+  margin-top: 2rem;
+}
+
+.entry h3 {
+  border-bottom: 0.1rem solid black;
+}
+
+#about h3 {
+  border-bottom: 0rem;
 }
 
 .card {
   background-color: gray;
   padding: 0.5rem;
   border: 0.1rem solid black;
-  margin: 1rem;
+  margin-left: 1em;
+  margin-bottom: 1em;
   float: right;
+  position: relative;
+  z-index: 1;
 }
 
 table {
   border: 0.1rem solid black;
   border-collapse: collapse;
+  width: 100%;
 }
 
 tr:nth-child(even) {
@@ -108,14 +117,6 @@ td {
 
 td span {
   display: block;
-}
-
-.project-entry+.project-entry {
-  margin-top: 2rem;
-}
-
-.project-header {
-  border-bottom: 0.1rem solid black;
 }
 
 /* Resume */

@@ -4,14 +4,15 @@ import type { EntryData } from "@scripts/types";
 interface Props {
     data: EntryData;
     imgWidth?: number;
-    showHeader?: boolean;
 }
 
 import { Image } from "astro:assets";
-const { data, imgWidth = 256, showHeader = true } = Astro.props;
+const { data, imgWidth = 256} = Astro.props;
 ---
 
-<section id={data.id.slice(1)} class="project-entry">
+<section id={data.id.slice(1)} class="entry">
+    <h3 class="transition-slide-left">{data.title}</h3>
+
     <div class="card transition-slide-right">
         {
             data.cover != null && (
@@ -55,13 +56,7 @@ const { data, imgWidth = 256, showHeader = true } = Astro.props;
         </table>
     </div>
     <div class="transition-slide-left">
-        {
-            showHeader && (
-                <h3 class="project-header transition-slide-left">
-                    {data.title}
-                </h3>
-            )
-        }
         <slot />
+
     </div>
 </section>
