@@ -1,13 +1,12 @@
 import { defineConfig } from 'astro/config';
-import node from '@astrojs/node';
 import swup from '@swup/astro';
 import mdx from '@astrojs/mdx';
 import rehypeExternalLinks from 'rehype-external-links';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  adapter: node({
-    mode: 'standalone',
-  }),
+  output: "static",
+  adapter: cloudflare(),
   integrations: [
     swup({
       cache: true,
