@@ -15,9 +15,5 @@ docker build -t my_website .
 - [swup](https://swup.js.org/)
 - [mdx](https://mdxjs.com/docs/what-is-mdx/)
 
-### Packages
-- [flag-icons](https://flagicons.lipis.dev/)
-- [qrcode](https://www.npmjs.com/package/qrcode)
-
 ## TODO
 Turn media in `public/starship_invasion` that is not the release trailer into gifs to display in website.
