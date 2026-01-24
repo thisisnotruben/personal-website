@@ -11,10 +11,24 @@ body {
   padding: 2rem;
 }
 
-.center-container {
+.iframe-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 75%;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Header/Footer */
@@ -126,11 +140,25 @@ td span {
     align-items: center;
   }
 
-  .weblink {
-    flex: 50%;
-    justify-content: space-around;
-    font-size: 0;
+  nav,
+  footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
+
+  .weblink {
+    padding-left: 15%;
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+
+  .weblink+.weblink {
+    padding-top: 0.3em;
+  }
+}
+
+iframe {
+  width: 80%;
 }
 
 /* Resume */
