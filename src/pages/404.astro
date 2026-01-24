@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const MobyDickCite = "https://www.gutenberg.org/ebooks/2701";
+---
+
+<BaseLayout pageTitle="404, page not found">
+    <div>
+        <blockquote cite={MobyDickCite}>
+            <p><i>"It is not down on any map; true places never are."</i></p>
+        </blockquote>
+        <p>
+            ―Herman Melville,
+            <cite>
+                <a href={MobyDickCite} target="_blank">Moby-Dick; or, The Whale</a>
+            </cite>
+        </p>
+    </div>
+</BaseLayout>

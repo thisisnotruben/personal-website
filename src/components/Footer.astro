@@ -29,9 +29,9 @@ const footerItems: WebLink[] = [
 <footer>
   {
     footerItems.map((item) => (
-      <a href={item.href} target="_blank">
+      <a href={item.href} target="_blank" class="weblink">
         <item.icon class="link-icon" />
-        {item.name}
+        <span>{item.name}</span>
       </a>
     ))
   }

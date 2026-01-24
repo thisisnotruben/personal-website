@@ -7,56 +7,56 @@ interface Props {
 }
 
 import { Image } from "astro:assets";
-const { data, imgWidth = 256} = Astro.props;
+const { data, imgWidth = 256 } = Astro.props;
 ---
 
 <section id={data.id.slice(1)} class="entry">
     <h3 class="transition-slide-left">{data.title}</h3>
-
-    <div class="card transition-slide-right">
-        {
-            data.cover != null && (
-                <Image
-                    src={data.cover}
-                    alt={data.title + " cover"}
-                    width={imgWidth}
-                />
-            )
-        }
-        <table>
-            <tbody>
-                {
-                    Object.keys(data.table).map((key) => (
-                        <tr>
-                            <td class="row-key">{key}:</td>
-                            <td>
-                                {Array.isArray(data.table[key]) ? (
-                                    data.table[key].map((value) => (
-                                        <span>
-                                            {<Fragment set:html={value} />}
-                                        </span>
-                                    ))
-                                ) : (
-                                    <a
-                                        href={data.table[key].link}
-                                        target="_blank"
-                                    >
-                                        {
-                                            <Fragment
-                                                set:html={data.table[key].text}
-                                            />
-                                        }
-                                    </a>
-                                )}
-                            </td>
-                        </tr>
-                    ))
-                }
-            </tbody>
-        </table>
-    </div>
-    <div class="transition-slide-left">
-        <slot />
-
+    <div class="content">
+        <div class="card transition-slide-right">
+            {
+                data.cover != null && (
+                    <Image
+                        src={data.cover}
+                        alt={data.title + " cover"}
+                        width={imgWidth}
+                    />
+                )
+            }
+            <table>
+                <tbody>
+                    {
+                        Object.keys(data.table).map((key) => (
+                            <tr>
+                                <td class="row-key">{key}:</td>
+                                <td>
+                                    {Array.isArray(data.table[key]) ? (
+                                        data.table[key].map((value) => (
+                                            <span>
+                                                {<Fragment set:html={value} />}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        <a
+                                            href={data.table[key].link}
+                                            target="_blank"
+                                        >
+                                            {
+                                                <Fragment
+                                                    set:html={
+                                                        data.table[key].text
+                                                    }
+                                                />
+                                            }
+                                        </a>
+                                    )}
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="transition-slide-left"><slot /></div>
     </div>
 </section>

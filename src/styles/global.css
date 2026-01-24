@@ -119,6 +119,20 @@ td span {
   display: block;
 }
 
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weblink {
+    flex: 50%;
+    justify-content: space-around;
+    font-size: 0;
+  }
+}
+
 /* Resume */
 .grid-resume {
   display: flex;

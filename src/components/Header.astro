@@ -41,9 +41,9 @@ const navItems: WebLink[] = [
   <nav>
     {
       navItems.map((item) => (
-        <a href={item.href}>
+        <a href={item.href} class="weblink">
           <item.icon class="link-icon" />
-          {item.name}
+          <span>{item.name}</span>
         </a>
       ))
     }
