@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { Download } from "lucide-astro";
 
 const languages = ["Python", "TypeScript", "SQL", "Bash", "Java", "GDScript"];
 const platforms = [
@@ -18,6 +19,15 @@ const methodologies = ["Agile", "Scrum"];
 ---
 
 <BaseLayout pageTitle="Resume">
+    <a
+        id="resume-download"
+        slot="page-title-right"
+        href="/resume.pdf"
+        download="ruben_alvarez_reyes_resume.pdf"
+    >
+        <Download class="link-icon" /> Download
+    </a>
+
     <article id="resume">
         <h2>Professional Experiance</h2>
         <section>

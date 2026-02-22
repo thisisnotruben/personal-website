@@ -14,6 +14,17 @@ const projects = (await getCollection("project")).sort((a, b) => {
 ---
 
 <BaseLayout pageTitle="My projects">
+    <p>
+        Here are my projects, mostly of game development nature. If you'd like
+        to donate to my works and have me feel like a million bucks, you can
+        donate to my
+        <a
+            href="https://www.paypal.com/donate/?business=S3X68A3DN7KV8&no_recurring=0&currency_code=USD"
+            target="_blank"
+        >
+            Paypal.
+        </a>
+    </p>
     <ul>
         {
             projects.map((project) => (

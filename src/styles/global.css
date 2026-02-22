@@ -31,6 +31,11 @@ body {
   height: 100%;
 }
 
+#page-title {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Header/Footer */
 header {
   padding-bottom: 1rem;
@@ -49,7 +54,8 @@ footer {
 }
 
 nav a,
-footer a {
+footer a,
+#resume-download {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -58,17 +64,20 @@ footer a {
 }
 
 nav a,
-footer a {
+footer a,
+#resume-download {
   color: black;
 }
 
 nav a:hover,
-footer a:hover {
+footer a:hover,
+#resume-download {
   color: blue;
 }
 
 nav a:active,
-footer a:active {
+footer a:active,
+#resume-download {
   color: purple;
 }
 
@@ -148,8 +157,6 @@ td span {
 
   .weblink {
     padding-left: 15%;
-    /* display: flex; */
-    /* justify-content: center; */
   }
 
   .weblink+.weblink {
