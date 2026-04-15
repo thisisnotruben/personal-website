@@ -1,8 +1,7 @@
-import { defineConfig } from 'astro/config';
-import swup from '@swup/astro';
 import mdx from '@astrojs/mdx';
+import swup from '@swup/astro';
+import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
-import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   output: "static",

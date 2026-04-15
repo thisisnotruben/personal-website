@@ -1,29 +1,59 @@
 ---
-import Cover from "../content/about/cover.jpg";
 import Entry from "@components/Entry.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { type EntryData } from "@scripts/types";
+import { type EntryBody } from "@src/content.config";
 import { Bike, Computer, Mountain, PersonStanding } from "lucide-astro";
+import Cover from "../content/about/cover.jpg";
 
-const profile: EntryData = {
+const profile: EntryBody = {
+  releaseDate: new Date("1996-10-04"),
   title: "",
-  id: "#about",
-  cover: Cover,
-  table: {
-    Name: ["Ruben Alvarez Reyes"],
-    Pronouns: ["He/him"],
-    Nationality: ['<span class="fi fi-us"></span> USA'],
-    Residence: ["Texas"],
-    Languages: [
-      '<span class="fi fi-us"></span> English (en)',
-      '<span class="fi fi-mx"></span> Spanish (es)',
-    ],
-  },
+  id: "",
+  table: [
+    {
+      key: "Name",
+      value: {
+        type: "Elements",
+        value: ["Ruben Alvarez Reyes"],
+      },
+    },
+    {
+      key: "Pronouns",
+      value: {
+        type: "Elements",
+        value: ["He/him"],
+      },
+    },
+    {
+      key: "Nationality",
+      value: {
+        type: "Elements",
+        value: ['<span class="fi fi-us"></span> USA'],
+      },
+    },
+    {
+      key: "Residence",
+      value: {
+        type: "Elements",
+        value: ["Texas"],
+      },
+    },
+    {
+      key: "Languages",
+      value: {
+        type: "Elements",
+        value: [
+          '<span class="fi fi-us"></span> English (en)',
+          '<span class="fi fi-mx"></span> Spanish (es)',
+        ],
+      },
+    },
+  ],
 };
 ---
 
 <BaseLayout pageTitle="About Me">
-  <Entry data={profile} imgWidth={300}>
+  <Entry body={profile} img={Cover} imgWidth={300}>
     <p>
       Hello, I'm from the state of Arizona and grew up near the border of Mexico
       in small town called
@@ -64,9 +94,9 @@ const profile: EntryData = {
       >, and
       <a href="https://en.wikipedia.org/wiki/Himalayas" target="_blank"
         >Himalayas</a
-      > it has been absolutely wonderful. I cannot stress just enough the simple
-      beauty of walking outisde has brought joy and memories to me. I point my finger
-      to riding my bicycle as a teenager to lead me to these beautiful places.
+      > it has been absolutely wonderful. I cannot stress just enough the simple beauty
+      of walking outisde has brought joy and memories to me. I point my finger to
+      riding my bicycle as a teenager to lead me to these beautiful places.
     </p>
     <PersonStanding />
     <p>

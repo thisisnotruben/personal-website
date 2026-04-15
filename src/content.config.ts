@@ -3,23 +3,27 @@ import { z } from 'astro/zod';
 import { defineCollection } from 'astro:content';
 
 
-const entryData = ({ image }) => z.object({
+const entryBody = z.object({
     releaseDate: z.date(),
     title: z.string(),
     id: z.string(),
-    cover: z.nullable(image()),
-    table: z.record(z.string(),
-        z.union([
-            z.array(z.string()),
-            z.object({
-                link: z.string(),
-                text: z.string()
-            })]))
+    table: z.array(z.object({
+        key: z.string(),
+        value: z.object({
+            type: z.string(),
+            value: z.union([
+                z.array(z.string()),
+                z.object({
+                    text: z.string(),
+                    link: z.string()
+                })
+            ])
+        })
+    }))
 });
 
-const thoughtsData = ({ image }) => z.object({
+const thoughtsBody = z.object({
     title: z.string(),
-    cover: z.nullable(image()),
     draft: z.boolean(),
     pubDatetime: z.date(),
     modDatetime: z.date(),
@@ -29,12 +33,20 @@ const thoughtsData = ({ image }) => z.object({
 
 const project = defineCollection({
     loader: glob({ pattern: "**/*.mdx", base: "./src/content/project" }),
-    schema: entryData,
+    schema: ({ image }) => z.object({
+        cover: z.nullable(image()),
+        body: entryBody,
+    }),
 })
 
 const thoughts = defineCollection({
     loader: glob({ pattern: "**/*.mdx", base: "./src/content/thoughts" }),
-    schema: thoughtsData,
+    schema: ({ image }) => z.object({
+        cover: z.nullable(image()),
+        body: thoughtsBody
+    }),
 })
 
+export type EntryBody = z.infer<typeof entryBody>;
+export type ThoughtsBody = z.infer<typeof thoughtsBody>;
 export const collections = { project, thoughts };

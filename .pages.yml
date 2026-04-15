@@ -9,7 +9,7 @@ content:
   - name: thoughts
     label: Thoughts
     type: collection
-    path: src/content/thoughts
+    path: src/content/thought
     subfolders: true
     filename:
       template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
@@ -20,29 +20,97 @@ content:
         sort: modDatetime
         order: desc
     fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
       - name: cover
         label: Cover
         type: image
-      - name: draft
-        label: Draft
-        type: boolean
-      - name: pubDatetime
-        label: Published Date
-        type: date
-      - name: modDatetime
-        label: Modified Date
-        type: date
-      - name: tags
-        label: Tags
-        type: string
-        list: true
-      - name: description
-        label: Description
-        type: string
+      - name: body
+        label: Body
+        type: object
+        fields:
+        - name: title
+          label: Title
+          type: string
+          required: true
+        - name: draft
+          label: Draft
+          type: boolean
+          default: true
+        - name: pubDatetime
+          label: Published Date
+          type: date
+        - name: modDatetime
+          label: Modified Date
+          type: date
+        - name: tags
+          label: Tags
+          type: string
+          list: true
+        - name: description
+          label: Description
+          type: string
+      - name: body
+        label: Body
+        type: rich-text
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/project
+    subfolders: true
+    filename:
+      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
+      field: create
+    view:
+      field: [title, releaseDate]
+      default:
+        sort: releaseDate
+        order: desc
+    fields:
+      - name: cover
+        label: Cover
+        type: image
+      - name: body
+        label: Body
+        type: object
+        fields:
+        - name: releaseDate
+          label: Release Date
+          type: date
+        - name: title
+          label: Title
+          type: string
+          required: true
+        - name: id
+          label: id
+          type: string
+        - name: table
+          label: Table
+          type: object
+          list: true
+          fields:
+            - name: key
+              label: Key
+              type: select
+              options:
+                values: [Playable link, Repo, Platforms, Engine used, Tools used]
+            - name: value
+              label: Value
+              type: block
+              blockKey: type
+              blocks:
+                - name: EntryDataLink
+                  fields:
+                    - name: value
+                      type: object
+                      fields:
+                        - name: text
+                          type: string
+                        - name: link
+                          type: string
+                - name: Elements
+                  fields:
+                    - name: value
+                      type: string
+                      list: true
       - name: body
         label: Body
         type: rich-text

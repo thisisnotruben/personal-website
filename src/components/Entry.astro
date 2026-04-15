@@ -1,24 +1,26 @@
 ---
-import type { EntryData } from "@scripts/types";
+import { type EntryBody } from "@src/content.config";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 
 interface Props {
-    data: EntryData;
+    body: EntryBody;
+    img: ImageMetadata | null;
     imgWidth?: number;
 }
 
-import { Image } from "astro:assets";
-const { data, imgWidth = 256 } = Astro.props;
+const { body, img, imgWidth = 256 } = Astro.props;
 ---
 
-<section id={data.id.slice(1)} class="entry">
-    <h3 class="transition-slide-left">{data.title}</h3>
+<section id={body.id.slice(1)} class="entry">
+    <h3 class="transition-slide-left">{body.title}</h3>
     <div class="content">
         <div class="card transition-slide-right">
             {
-                data.cover != null && (
+                img != null && (
                     <Image
-                        src={data.cover}
-                        alt={data.title + " cover"}
+                        src={img}
+                        alt={body.title + " cover"}
                         width={imgWidth}
                     />
                 )
@@ -26,30 +28,22 @@ const { data, imgWidth = 256 } = Astro.props;
             <table>
                 <tbody>
                     {
-                        Object.keys(data.table).map((key) => (
+                        body.table.map((entry) => (
                             <tr>
-                                <td class="row-key">{key}:</td>
+                                <td class="row-key">{entry.key}:</td>
                                 <td>
-                                    {Array.isArray(data.table[key]) ? (
-                                        data.table[key].map((value) => (
-                                            <span>
-                                                {<Fragment set:html={value} />}
-                                            </span>
-                                        ))
-                                    ) : (
-                                        <a
-                                            href={data.table[key].link}
-                                            target="_blank"
-                                        >
-                                            {
-                                                <Fragment
-                                                    set:html={
-                                                        data.table[key].text
-                                                    }
-                                                />
-                                            }
-                                        </a>
-                                    )}
+                                    {
+                                        Array.isArray(entry.value.value) ? 
+                                            entry.value.value.map((e) => (
+                                                <span>
+                                                    {<Fragment set:html={e} />}
+                                                </span>
+                                            ))
+                                        : 
+                                            <a href={entry.value.value.link} target="_blank">
+                                                {<Fragment set:html={entry.value.value.text} />}
+                                            </a>
+                                    }
                                 </td>
                             </tr>
                         ))

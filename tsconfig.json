@@ -2,27 +2,14 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "paths": {
-      "@public/*": [
-        "./public/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@layouts/*": [
-        "./src/layouts/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@scripts/*": [
-        "./src/scripts/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@countryFlags": [
-        "./node_modules/flag-icons/css/flag-icons.min.css"
-      ],
+      "@public/*": ["./public/*"],
+      "@src/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@scripts/*": ["./src/scripts/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@countryFlags": ["./node_modules/flag-icons/css/flag-icons.min.css"],
     },
     "strictNullChecks": true,
     "allowJs": true
