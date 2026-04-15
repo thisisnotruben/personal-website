@@ -1,0 +1,48 @@
+media:
+  - name: images
+    label: Images
+    input: src/content/image
+    output: src/content/image
+    rename: safe
+    extensions: [png, jpg, webp]
+content:
+  - name: thoughts
+    label: Thoughts
+    type: collection
+    path: src/content/thoughts
+    subfolders: true
+    filename:
+      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
+      field: create
+    view:
+      fields: [title, draft, pubDatetime, modDatetime]
+      default:
+        sort: modDatetime
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: cover
+        label: Cover
+        type: image
+      - name: draft
+        label: Draft
+        type: boolean
+      - name: pubDatetime
+        label: Published Date
+        type: date
+      - name: modDatetime
+        label: Modified Date
+        type: date
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: description
+        label: Description
+        type: string
+      - name: body
+        label: Body
+        type: rich-text

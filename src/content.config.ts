@@ -1,6 +1,6 @@
-import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 
 const entryData = ({ image }) => z.object({
@@ -17,10 +17,24 @@ const entryData = ({ image }) => z.object({
             })]))
 });
 
+const thoughtsData = ({ image }) => z.object({
+    title: z.string(),
+    cover: z.nullable(image()),
+    draft: z.boolean(),
+    pubDatetime: z.date(),
+    modDatetime: z.date(),
+    tags: z.array(z.string()),
+    description: z.string(),
+});
 
 const project = defineCollection({
     loader: glob({ pattern: "**/*.mdx", base: "./src/content/project" }),
     schema: entryData,
 })
 
-export const collections = { project };
+const thoughts = defineCollection({
+    loader: glob({ pattern: "**/*.mdx", base: "./src/content/thoughts" }),
+    schema: thoughtsData,
+})
+
+export const collections = { project, thoughts };
