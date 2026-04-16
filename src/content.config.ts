@@ -40,7 +40,7 @@ const project = defineCollection({
 })
 
 const thoughts = defineCollection({
-    loader: glob({ pattern: "**/*.mdx", base: "./src/content/thoughts" }),
+    loader: glob({ pattern: "**/*.mdx", base: "./src/content/thought" }),
     schema: ({ image }) => z.object({
         cover: z.nullable(image()),
         body: thoughtsBody
