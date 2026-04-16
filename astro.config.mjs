@@ -1,3 +1,4 @@
+import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
 import swup from '@swup/astro';
 import { defineConfig } from 'astro/config';
