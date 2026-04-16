@@ -6,7 +6,9 @@ import rehypeExternalLinks from 'rehype-external-links';
 
 export default defineConfig({
   output: "static",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'compile'
+  }),
   integrations: [
     swup({
       cache: true,
