@@ -1,5 +1,5 @@
 {
-	"main": "src/index.js",
+	"main": "src/pages/index.js",
 	"name": "personal-website",
   "compatibility_date": "2026-01-22",
   "compatibility_flags": [
