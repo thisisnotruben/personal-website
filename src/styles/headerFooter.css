@@ -1,0 +1,47 @@
+header {
+  padding-bottom: 1rem;
+  border-bottom: 0.15rem dashed black;
+}
+
+footer {
+  padding-top: 1rem;
+  border-top: 0.15rem dashed black;
+}
+
+nav,
+footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav a,
+footer a,
+#resume-download {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+nav a,
+footer a,
+#resume-download {
+  color: black;
+}
+
+nav a:hover,
+footer a:hover,
+#resume-download {
+  color: blue;
+}
+
+nav a:active,
+footer a:active,
+#resume-download {
+  color: purple;
+}
+
+.link-icon {
+  padding-right: 0.25rem;
+}

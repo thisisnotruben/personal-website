@@ -1,0 +1,64 @@
+.image-popup-item {
+    cursor: zoom-in;
+}
+
+.image-popup-container-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 5;
+}
+
+.image-popup-container {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe9c7;
+    outline: 0.15rem solid black;
+    outline-offset: -0.5rem;
+    padding: 0.75rem;
+}
+
+.image-popup-container > img,
+.image-popup-container > div:last-child {
+    margin-left: 4rem;    
+    margin-right: 4rem;
+}
+
+.image-popup-container > img {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.image-popup-container-exit-container {
+    height: 0;
+    align-self: flex-end;
+}
+
+.carousel-socket-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.image-popup-container-hide,
+.carousel-socket-container-hide {
+    display: none;
+}
+
+.carousel-left-control,
+.carousel-right-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,6 +1,7 @@
 ---
 import Entry from "@components/Entry.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import ImagePopup from "@src/components/ImagePopup.astro";
 import { type EntryBody } from "@src/content.config";
 import { Bike, Computer, Mountain, PersonStanding } from "lucide-astro";
 import Cover from "../content/about/cover.jpg";
@@ -53,6 +54,7 @@ const profile: EntryBody = {
 ---
 
 <BaseLayout pageTitle="About Me">
+  <ImagePopup />
   <Entry body={profile} img={Cover} imgWidth={300}>
     <p>
       Hello, I'm from the state of Arizona and grew up near the border of Mexico

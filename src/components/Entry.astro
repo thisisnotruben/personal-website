@@ -19,9 +19,11 @@ const { body, img, imgWidth = 256 } = Astro.props;
             {
                 img != null && (
                     <Image
+                        class="image-popup-item"
                         src={img}
                         alt={body.title + " cover"}
                         width={imgWidth}
+                        id={body.id.slice(1) + '-image'}
                     />
                 )
             }
