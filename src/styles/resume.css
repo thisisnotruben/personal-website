@@ -1,0 +1,41 @@
+#resume-download {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: var(--bold-font-size);
+    font-weight: bold;
+    color: var(--link-color);
+}
+
+#resume-download:hover {
+    color: var(--link-hover-color);
+}
+
+#resume-download:active {
+    color: var(--link-active-color);
+}
+
+.grid-resume {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cell-resume {
+    flex-wrap: wrap;
+}
+
+#resume h2 {
+    text-align: center;
+    border-bottom: var(--secondary-spacing) solid var(--border-color);
+}
+
+.resume-job-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resume-education {
+    list-style-type: none;
+    padding-left: 0;
+}

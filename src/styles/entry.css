@@ -1,0 +1,47 @@
+.entry {
+  overflow: auto;
+}
+
+.entry+.entry {
+  margin-top: var(--primary-spacing);
+}
+
+.entry h3 {
+  border-bottom: var(--secondary-spacing) solid var(--border-color);
+}
+
+.card {
+  background-color: var(--primary-bg-color);
+  padding: calc(var(--body-padding) / 2);
+  border: var(--secondary-spacing) solid var(--border-color);
+  margin-left: var(--body-padding);
+  margin-bottom: var(--body-padding);
+  float: right;
+  position: relative;
+  z-index: 1;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: var(--secondary-bg-color);
+}
+
+td {
+  --half-size: calc(var(--body-padding) / 2);
+  text-align: right;
+  vertical-align: text-top;
+  padding-left: var(--half-size);
+  padding-right: var(--half-size);
+}
+
+.row-key {
+  text-wrap: nowrap;
+}
+
+td span {
+  display: block;
+}

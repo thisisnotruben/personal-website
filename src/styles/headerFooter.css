@@ -1,11 +1,11 @@
 header {
-  padding-bottom: 1rem;
-  border-bottom: 0.15rem dashed black;
+  padding-bottom: var(--body-padding);
+  border-bottom: var(--secondary-spacing) dashed var(--border-color);
 }
 
 footer {
-  padding-top: 1rem;
-  border-top: 0.15rem dashed black;
+  padding-top: var(--body-padding);
+  border-top: var(--secondary-spacing) dashed var(--border-color);
 }
 
 nav,
@@ -15,33 +15,21 @@ footer {
 }
 
 nav a,
-footer a,
-#resume-download {
+footer a {
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: var(--bold-font-size);
   font-weight: bold;
-}
-
-nav a,
-footer a,
-#resume-download {
-  color: black;
+  color: var(--link-color);
 }
 
 nav a:hover,
-footer a:hover,
-#resume-download {
-  color: blue;
+footer a:hover {
+  color: var(--link-hover-color);
 }
 
 nav a:active,
-footer a:active,
-#resume-download {
-  color: purple;
-}
-
-.link-icon {
-  padding-right: 0.25rem;
+footer a:active {
+  color: var(--link-active-color);
 }
