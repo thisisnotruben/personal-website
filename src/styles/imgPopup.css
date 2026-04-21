@@ -54,12 +54,14 @@
 .image-popup-container-show {
     z-index: 2;
     opacity: 1;
+    visibility:visible;
 }
 
 .image-popup-container-hide,
 .carousel-socket-container-hide {
     z-index: auto;
     opacity: 0;
+    visibility: hidden;
 }
 
 .carousel-left-control,
