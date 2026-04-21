@@ -25,10 +25,17 @@ html {
 
 body {
   margin: 0 auto;
+  min-height: 100vh;
   width: 100%;
   max-width: 80ch;
   padding: var(--primary-spacing);
   background-color: var(--secondary-bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
 }
 
 #page-title {

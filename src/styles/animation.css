@@ -2,9 +2,6 @@ html {
   --translate_amount: 1.5em;
   --translate_inverse_amount: -1.5em;
   --anim_time: 300ms;
-}
-
-main {
   --swup-fade-theme-duration: var(--anim_time);
 }
 
