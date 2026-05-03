@@ -1,7 +1,7 @@
 ---
 import { type EntryBody } from "@src/content.config";
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
+import type { GetImageResult, ImageMetadata } from "astro";
+import { Image, getImage } from "astro:assets";
 
 interface Props {
     body: EntryBody;
@@ -10,21 +10,37 @@ interface Props {
 }
 
 const { body, img, imgWidth = 256 } = Astro.props;
+
+const id = body.id.slice(1);
+const coverImgId = id.concat("-image");
+
+var optimizedImg: GetImageResult | null = null;
+if (img != null) {
+    optimizedImg = await getImage({ src: img });
+}
 ---
 
-<section id={body.id.slice(1)} class="entry">
+<section id={id} class="entry">
     <h3 class="transition-slide-left">{body.title}</h3>
     <div class="content">
         <div class="card transition-slide-right">
             {
-                img != null && (
-                    <Image
-                        class="image-popup-item"
-                        src={img}
-                        alt={body.title + " cover"}
-                        width={imgWidth}
-                        id={body.id.slice(1) + '-image'}
-                    />
+                img != null && optimizedImg != null && (
+                    <div class="gallery">
+                        <a
+                            href={optimizedImg.src}
+                            data-pswp-width={optimizedImg.attributes.width}
+                            data-pswp-height={optimizedImg.attributes.height}
+                            target="_blank"
+                        >
+                            <Image
+                                src={img}
+                                id={coverImgId}
+                                alt={body.title.concat(" cover")}
+                                width={imgWidth}
+                            />
+                        </a>
+                    </div>
                 )
             }
             <table>

@@ -1,7 +1,6 @@
 ---
 import Entry from "@components/Entry.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import ImagePopup from "@src/components/ImagePopup.astro";
 import { getCollection, render } from "astro:content";
 const projects = (await getCollection("project")).sort((a, b) => {
     if (a.data.body.releaseDate > b.data.body.releaseDate) {
@@ -14,7 +13,6 @@ const projects = (await getCollection("project")).sort((a, b) => {
 ---
 
 <BaseLayout pageTitle="My projects">
-    <ImagePopup />
     <p>
         Here are my projects, mostly of game development nature. If you'd like
         to donate to my works and have me feel like a million bucks, you can

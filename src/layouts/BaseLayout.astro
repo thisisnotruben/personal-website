@@ -21,6 +21,11 @@ const { pageTitle } = Astro.props;
     />
   </head>
   <body>
+    <script>
+      import { initPhotoSwipe } from "@scripts/photoswipe";
+      document.addEventListener("astro:page-load", () => initPhotoSwipe());
+      initPhotoSwipe();
+    </script>
     <Header />
     <main>
       <div id="page-title">
