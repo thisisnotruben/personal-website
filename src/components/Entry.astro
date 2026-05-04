@@ -2,6 +2,7 @@
 import { type EntryBody } from "@src/content.config";
 import type { GetImageResult, ImageMetadata } from "astro";
 import { Image, getImage } from "astro:assets";
+import ImageCarousel from "./ImageCarousel.astro";
 
 interface Props {
     body: EntryBody;
@@ -70,5 +71,13 @@ if (img != null) {
             </table>
         </div>
         <div class="transition-slide-left"><slot /></div>
+        <!-- HACK: doing this until I put this info in the frontmatter -->
+         {
+            id == 'starship-invasion' && <ImageCarousel imgDir="starship_invasion" />
+         }
+         {
+            id == 'starry-night' && <ImageCarousel imgDir="starry_night" />
+         }
+        
     </div>
 </section>

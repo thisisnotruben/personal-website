@@ -2,9 +2,9 @@
 import { getImage, Image } from "astro:assets";
 
 interface Props {
-    imgDir?: string;
+    imgDir: string;
 }
-const { imgDir = "starship_invasion" } = Astro.props;
+const { imgDir } = Astro.props;
 
 const imgs = import.meta.glob<{ default: ImageMetadata }>(
     "../content/image/**/*",
@@ -14,7 +14,7 @@ const imgPaths = Object.keys(imgs).filter((imgPath) => {
 });
 ---
 
-<div class="gallery">
+<div class="gallery image-carousel">
     {
         imgPaths.map(async (imgPath) => {
             const img = imgs[imgPath]();
