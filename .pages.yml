@@ -23,6 +23,9 @@ content:
       - name: cover
         label: Cover
         type: image
+      - name: imgDir
+        label: Image Carousel Directory
+        type: string
       - name: body
         label: Body
         type: object
