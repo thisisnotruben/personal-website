@@ -7,6 +7,7 @@ const entryBody = z.object({
     releaseDate: z.date(),
     title: z.string(),
     id: z.string(),
+    imgDir: z.string(),
     table: z.array(z.object({
         key: z.string(),
         value: z.object({

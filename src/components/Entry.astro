@@ -71,13 +71,8 @@ if (img != null) {
             </table>
         </div>
         <div class="transition-slide-left"><slot /></div>
-        <!-- HACK: doing this until I put this info in the frontmatter -->
-         {
-            id == 'starship-invasion' && <ImageCarousel imgDir="starship_invasion" />
-         }
-         {
-            id == 'starry-night' && <ImageCarousel imgDir="starry_night" />
-         }
-        
+        {
+            body.imgDir.length > 0 && <ImageCarousel imgDir={body.imgDir} />
+        }
     </div>
 </section>

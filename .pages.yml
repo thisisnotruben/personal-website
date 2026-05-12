@@ -12,7 +12,7 @@ content:
     path: src/content/thought
     subfolders: true
     filename:
-      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
+      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.mdx"
       field: create
     view:
       fields: [title, draft, pubDatetime, modDatetime]
@@ -57,7 +57,7 @@ content:
     path: src/content/project
     subfolders: true
     filename:
-      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
+      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.mdx"
       field: create
     view:
       field: [title, releaseDate]
@@ -82,6 +82,9 @@ content:
         - name: id
           label: id
           type: string
+        - name: imgDir
+          label: Carousel Image Directory
+          type: string 
         - name: table
           label: Table
           type: object
