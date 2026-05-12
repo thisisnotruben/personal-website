@@ -12,7 +12,7 @@ content:
     path: src/content/thought
     subfolders: true
     filename:
-      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.mdx"
+      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
       field: create
     view:
       fields: [title, draft, pubDatetime, modDatetime]
@@ -57,7 +57,7 @@ content:
     path: src/content/project
     subfolders: true
     filename:
-      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.mdx"
+      template: "{year}-{month}-{day}-{hour}-{minute}_{primary}.md"
       field: create
     view:
       field: [title, releaseDate]
