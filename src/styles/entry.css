@@ -6,7 +6,7 @@
   margin-top: var(--primary-spacing);
 }
 
-.entry h3 {
+.entry h2 {
   border-bottom: var(--secondary-spacing) solid var(--border-color);
 }
 

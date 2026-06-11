@@ -1,0 +1,74 @@
+---
+cover: "../image/music_play_cover.png"
+body:
+  releaseDate: 2026-06-11
+  title: Music Play
+  id: "#music-play"
+  imgDir: music_play
+  table:
+    - key: Repo
+      value:
+        type: EntryDataLink
+        value:
+          link: https://github.com/thisisnotruben/music_play
+          text: Github
+    - key: Playable link
+      value:
+        type: EntryDataLink
+        value:
+          link: https://github.com/thisisnotruben/music_play
+          text: Github
+    - key: Tools used
+      value:
+        type: Elements
+        value:
+          - Vue Js
+          - Tailwind Css
+          - Daisy UI
+          - Java Spring-boot
+          - PostgreSQL
+          - Garage
+          - Apache Solr
+          - Apache Lucene
+          - Docker
+---
+A Spotify clone I made to up-skill myself in technologies that I found interesting and is fully [runnable](https://github.com/thisisnotruben/music_play). The targeted technologies to up-skill myself in are:
+
+- Object storage with [Garage](https://garagehq.deuxfleurs.fr/) (AWS S3 compatible API)
+- Search services with [Apache Solr](https://solr.apache.org/)
+- Building a frontend with [Vue Js](https://vuejs.org/) & [Tailwind Css](https://tailwindcss.com/) + [Daisy UI](https://daisyui.com/)
+- Utilize OpenAPI for [client-side code generation](https://openapi-generator.tech/) of API spec
+- Harnessing [Docker](https://www.docker.com/) since there many services at play
+
+This project took about two months to complete and I would state that it has increased my knowledge base. I included here screenshots of the the frontend with a flow diagram to demonstrate usage.
+
+All song metadata is stored in a database (PostgreSQL) with accompanying binary data of album covers, audio data, etc. in object storage. Search capabilities in the  frontend for songs and albums is handled by Apache Solr. These capabilities are routed through a Java Spring-boot backend  to handle these types of requests, minus those for object storage. I used Docker to tie everything together, from pulling all services and building images in the form of docker-compose.
+
+### What I learned
+
+The power of knowing the tool for the job and how to integrate that for a project. Examples of that is harnessing Apache Solr and Garage (Object Storage), with this project I came to know how to setup those servers, read the docs to know how interact with those servers, and know that the functionalities that I wanted to implement were solved through these platforms.
+
+The OpenAPI specification isn't just for human reading but also for code generation for client API's to interact with your server. Annotating my REST controllers with detail led to automatic OpenAPI json file generation, which in turn led me to use a code generator to generate the interface for the client side. This drastically reduced the effort to write boilerplate interfaces that were constantly changing.
+
+Java Spring-boot is pretty powerful and has many libraries to integrate with for validation, JDBC connections, and object storage clients.
+
+### Running the application
+
+You need to have <u>Docker</u> installed to run this application.
+
+Simply copy/paste with command to terminal
+```bash
+git clone https://github.com/thisisnotruben/music_play
+docker compose up
+xdg open http://localhost:8443
+```
+You have your browser open to `http://localhost:8443` and should be able to login with username/password:
+- admin
+- admin123
+
+### Still left needed to implement
+
+Currently as of June 11 2026 I find this as a good release, however there are some features lacking:
+
+- Server side validation for form data
+- Spring security with JWT tokens
