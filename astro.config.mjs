@@ -7,7 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 export default defineConfig({
   output: "static",
   adapter: cloudflare({
-    imageService: { build: 'compile', runtime: 'cloudflare-binding' },
+    imageService: 'compile',
   }),
   integrations: [
     swup({
