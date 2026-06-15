@@ -15,7 +15,7 @@
     color: var(--link-active-color);
 }
 
-.grid-resume {
+.grid-resume-education {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -23,6 +23,11 @@
 
 .cell-resume {
     flex-wrap: wrap;
+}
+
+.grid-resume-skill {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 #resume h2 {

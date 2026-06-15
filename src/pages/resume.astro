@@ -16,6 +16,7 @@ const platforms = [
 const frameworks = ["Java Spring-boot", "Angular Js", "Vue Js", "Astro", "Tailwind Css"];
 const technologies = ["Docker", "Kubernetes", "Apache Lucene", "Apache Solr", "RabbitMQ", "Qt-framework"];
 const methodologies = ["Agile", "Scrum"];
+const certificates = ["AWS Certified Cloud Practitioner (CLF-C02)"];
 ---
 
 <BaseLayout pageTitle="Resume">
@@ -106,7 +107,7 @@ const methodologies = ["Agile", "Scrum"];
         </section>
 
         <h2>Education</h2>
-        <section class="grid-resume transition-slide-left">
+        <section class="grid-resume-education transition-slide-left">
             <section class="cell-resume">
                 <h3>University of Arizona</h3>
                 <ul>
@@ -126,7 +127,7 @@ const methodologies = ["Agile", "Scrum"];
         </section>
 
         <h2>Skills</h2>
-        <section class="grid-resume transition-slide-left">
+        <section class="grid-resume-skill transition-slide-left">
             <section class="cell-resume">
                 <h3>Languages</h3>
                 <ul>{languages.map((language) => <li>{language}</li>)}</ul>
@@ -159,6 +160,13 @@ const methodologies = ["Agile", "Scrum"];
                 <ul>
                     {methodologies.map((methodology) => <li>{methodology}</li>)}
                 </ul>
+            </section>
+
+            <section class="cell-resume">
+                <h3>Certificates</h3>
+                    <ul>
+                        {certificates.map((methodology) => <li>{methodology}</li>)}
+                    </ul>
             </section>
         </section>
     </article>
