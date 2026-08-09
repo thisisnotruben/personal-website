@@ -15,10 +15,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@astrojs/cloudflare": "https://pkg.pr.new/@astrojs/cloudflare@d45fd54",
-    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/cloudflare": "^14.2.0",
+    "@astrojs/mdx": "^7.0.5",
     "@swup/astro": "^1.8.0",
-    "astro": "https://pkg.pr.new/astro@d45fd54",
+    "astro": "^7.2.0",
     "lucide-astro": "^0.556.0",
     "photoswipe": "^5.4.4",
     "rehype-external-links": "^3.0.0"
