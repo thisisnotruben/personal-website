@@ -5,10 +5,9 @@ import { listPages } from "@src/lib/tina/data";
 export async function getStaticPaths() {
     return (await listPages())
         .map((node) => node._sys.filename)
-        .filter((slug) => slug != "home")
+        .filter((slug) => !['home', '404'].includes(slug))
         .map((slug) => ({ params: { slug } }));
 }
-
 const slug = (Astro.params.slug ?? "").toString();
 ---
 

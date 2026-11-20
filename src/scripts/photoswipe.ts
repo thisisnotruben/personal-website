@@ -18,7 +18,7 @@ function initPhotoSwipe() {
 }
 
 function initCarousel() {
-    var card = document.querySelector(".c-card") as Element;
+    var card = document.querySelector(".carousel-card") as Element;
     var carousel = document.querySelector(".carousel") as Element;
     var prevBtn = document.querySelector(".prev") as HTMLButtonElement;
     var nextBtn = document.querySelector(".next") as HTMLButtonElement;

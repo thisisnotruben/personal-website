@@ -4,9 +4,15 @@ import TinaMarkdown, { tinaField } from "@tinacms/astro/TinaMarkdown.astro";
 import ImgBlock from "./ImgBlock.astro";
 import ImgCarouselBlock from "./ImgCarouselBlock.astro";
 import PageNavBlock from "./PageNavBlock.astro";
+import VideoBlock from "./VideoBlock.astro";
 
 const { data } = Astro.props;
-const components: CustomComponentsMap = { ImgBlock, ImgCarouselBlock, PageNavBlock, };
+const components: CustomComponentsMap = {
+    ImgBlock,
+    ImgCarouselBlock,
+    PageNavBlock,
+    VideoBlock,
+};
 ---
 
 <div data-tina-field={tinaField(data, "body")}>
