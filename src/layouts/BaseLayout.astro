@@ -47,8 +47,11 @@ const { config, pageTitle } = Astro.props;
 
         <main>
             <div id="page-title">
-                <h1 class="transition-slide-left">{pageTitle}</h1>
-                <slot name="page-title-right" />
+                <slot name="breadcrumbs" />
+                <div>
+                    <h1 class="transition-slide-left">{pageTitle}</h1>
+                    <slot name="page-title-right" />
+                </div>
             </div>
             <slot />
         </main>

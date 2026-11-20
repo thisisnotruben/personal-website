@@ -1,0 +1,14 @@
+---
+import ProjectLayout from "@src/layouts/ProjectLayout.astro";
+import { listProjects } from "@src/lib/tina/data";
+
+export async function getStaticPaths() {
+    return (await listProjects())
+        .map((node) => node._sys.filename)
+        .map((slug) => ({ params: { slug } }));
+}
+
+const slug = (Astro.params.slug ?? "").toString();
+---
+
+<ProjectLayout slug={slug} />

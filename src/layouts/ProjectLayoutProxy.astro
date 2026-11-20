@@ -1,0 +1,12 @@
+---
+import MarkdownBlock from "@src/components/MarkdownBlock.astro";
+import type { CmsProject } from "@src/lib/tina/data";
+
+interface Props {
+    data: CmsProject;
+}
+
+const { data } = Astro.props;
+---
+
+<MarkdownBlock data={data} />

@@ -1,6 +1,9 @@
 import { ImgCarouselTemplate } from '@src/components/ImgCarouselTemplate';
 import { ImgTemplate } from '@src/components/ImgTemplate';
+import { PageNavTemplate } from '@src/components/PageNavTemplate';
 import { defineConfig } from 'tinacms';
+
+const blocks = [ImgCarouselTemplate, ImgTemplate, PageNavTemplate]
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -120,8 +123,8 @@ export default defineConfig({
             },
             {
                 name: 'page',
-                label: 'Pages',
-                path: 'content/pages',
+                label: 'Page',
+                path: 'content/page',
                 format: 'mdx',
                 ui: {
                     router: ({ document }) => document._sys.filename === 'home'
@@ -146,7 +149,7 @@ export default defineConfig({
                         name: "body",
                         label: "Body",
                         isBody: true,
-                        templates: [ImgCarouselTemplate, ImgTemplate],
+                        templates: blocks
                     },
                 ],
                 defaultItem: () => ({
@@ -205,8 +208,8 @@ export default defineConfig({
                         name: "body",
                         label: "Body",
                         isBody: true,
-                        templates: [ImgCarouselTemplate, ImgTemplate],
-                    },
+                        templates: blocks
+                    }
                 ],
                 defaultItem: () => ({
                     cover: '',
@@ -273,7 +276,7 @@ export default defineConfig({
                         name: "body",
                         label: "Body",
                         isBody: true,
-                        templates: [ImgCarouselTemplate, ImgTemplate],
+                        templates: blocks
                     },
                 ],
                 defaultItem: () => ({

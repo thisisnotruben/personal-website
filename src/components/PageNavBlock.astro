@@ -1,0 +1,34 @@
+---
+import { listBlogs, listProjects } from "@src/lib/tina/data";
+
+interface Props {
+    collectionRef: string;
+}
+
+const { collectionRef } = Astro.props;
+
+type PageNavType = {
+    title: string;
+};
+
+var filenameMap = new Map<string, PageNavType>();
+
+switch (collectionRef) {
+    case "projects":
+        (await listProjects()).forEach((p) =>
+            filenameMap.set(p._sys.filename, { title: p.title }),
+        );
+        break;
+    case "blog":
+        (await listBlogs()).forEach((p) =>
+            filenameMap.set(p._sys.filename, { title: p.title }),
+        );
+        break;
+}
+---
+
+<div>
+    {filenameMap.keys().map((f) => (
+        <a href={`${collectionRef}/${f}`}>{filenameMap.get(f)?.title}</a>
+    ))}
+</div>
