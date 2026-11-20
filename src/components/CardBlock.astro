@@ -1,0 +1,27 @@
+---
+import {
+    getOriginalSize,
+    getOriginalFromId,
+    getThumbnailFromId,
+} from "@src/scripts/immich";
+
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+const { width, height } = await getOriginalSize(id);
+---
+
+<div class="card transition-slide-right">
+    <div class="gallery">
+        <a
+            href={getOriginalFromId(id)}
+            data-pswp-width={width}
+            data-pswp-height={height}
+            target="_blank"
+        >
+            <img src={getThumbnailFromId(id)} />
+        </a>
+    </div>
+</div>

@@ -27,11 +27,11 @@ const { config, pageTitle } = Astro.props;
     </head>
     <body>
         <script>
-            import { initAllScripts } from "@scripts/photoswipe";
+            import { initPhotoSwipe } from "@scripts/photoswipe";
             document.addEventListener("astro:page-load", () =>
-                initAllScripts(),
+                initPhotoSwipe(),
             );
-            initAllScripts();
+            initPhotoSwipe();
         </script>
 
         <header>

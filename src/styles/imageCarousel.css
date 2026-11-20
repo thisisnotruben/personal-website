@@ -1,36 +1,28 @@
 .carousel {
-    width: 100%;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    overflow: hidden;
-}
-
-.image-carousel {
-    width: max-content;
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: gr;
+    padding-top: 0.5rem;
 }
 
-.carousel-card {
+.carousel a {
+    display: none;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.carousel-nav button {
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
-}
-
-.carousel-btn {
-    width: 4rem;
-}
-
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem
-}
-
-.carousel-container button {
+    width: 25%; 
     margin-top: 0.5rem;
-    display: flex;
-    align-items: center;
+    margin-bottom: 0.5rem;
 }

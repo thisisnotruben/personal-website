@@ -1,38 +1,106 @@
 ---
-import { Image } from "astro:assets";
+import {
+    getOriginalFromId,
+    getOriginalSize,
+    getThumbnailFromId,
+} from "@src/scripts/immich";
 
 interface Props {
-    imageSet: {
-        src: string;
-        alt: string;
-    }[];
+    idSet: string[];
 }
 
-const { imageSet } = Astro.props;
+const { idSet } = Astro.props;
+
+type PayloadType = {
+    thumbnail: string;
+    width: number;
+    height: number;
+};
+
+const images = new Map<string, PayloadType>();
+for (const id of idSet) {
+    const { width, height } = await getOriginalSize(id);
+
+    images.set(getOriginalFromId(id), {
+        thumbnail: getThumbnailFromId(id),
+        width: width,
+        height: height,
+    });
+}
+
+const carouselId = crypto.randomUUID();
 ---
 
-<div class="carousel">
-    <div class="gallery image-carousel">
-        {imageSet.map((img) => (
-            <a
-                class="carousel-card"
-                href={img.src}
-                data-pswp-width="256px"
-                data-pswp-height="256"
-            >
-                <Image src={img.src} alt={img.alt} width={256} height={256} />
-            </a>
-        ))}
-    </div>
+<div class="gallery carousel" id={carouselId}>
+    {images.keys().map((img) => (
+        <a
+            href={img}
+            data-pswp-width={images.get(img)?.width}
+            data-pswp-height={images.get(img)?.height}
+        >
+            <img src={images.get(img)?.thumbnail} />
+        </a>
+    ))}
 </div>
 
-<div class="carousel-container">
-    <button class="carousel-btn prev">
+<div class="carousel-nav transition-slide-left">
+    <button disabled class="prev" id={carouselId.concat("-prev")}>
         <img src="/chevron-left.svg" />
         Prev
     </button>
-    <button class="carousel-btn next">
+    <span id={carouselId.concat("-curr")}>1</span>
+    <span>/</span>
+    <span id={carouselId.concat("-max")}>1</span>
+    <button class="next" id={carouselId.concat("-next")}>
         Next
         <img src="/chevron-right.svg" />
     </button>
 </div>
+
+<script define:vars={{ carouselId }}>
+    var images = document.getElementById(carouselId)?.children;
+    images[0].style.display = "block";
+
+    var prevBttn = document.getElementById(carouselId.concat("-prev"));
+    var nextBttn = document.getElementById(carouselId.concat("-next"));
+    var currLbl = document.getElementById(carouselId.concat("-curr"));
+    document.getElementById(carouselId.concat("-max")).innerText =
+        images.length;
+
+    prevBttn.addEventListener("click", () => {
+        let k = 0;
+        for (let i = 0; i < images.length; i++) {
+            const element = images[i];
+            if (element.style.display == "block") {
+                nextBttn.disabled = false;
+                k = Math.max(i - 1, 0);
+                if (k == 0) {
+                    prevBttn.disabled = true;
+                }
+            }
+            element.style.display = "none";
+        }
+
+        currLbl.innerText = k + 1;
+        images[k].style.display = "block";
+    });
+
+    nextBttn.addEventListener("click", () => {
+        const n = images.length;
+        let k = 0;
+        for (let i = 0; i < n; i++) {
+            const element = images[i];
+            if (element.style.display == "block") {
+                prevBttn.disabled = false;
+                k = Math.min(i + 1, n - 1);
+                if (k == n - 1) {
+                    nextBttn.disabled = true;
+                }
+            }
+            element.style.display = "none";
+        }
+
+        currLbl.innerText = k + 1;
+        images[k].style.display = "block";
+    });
+</script>

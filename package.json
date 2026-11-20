@@ -18,6 +18,7 @@
   "dependencies": {
     "@astrojs/mdx": "^7.0.8",
     "@astrojs/node": "^11.1.14",
+    "@immich/sdk": "^3.4.2",
     "@swup/astro": "^1.8.0",
     "@tinacms/astro": "^0.8.0",
     "astro": "^7.4.12",
@@ -33,4 +34,3 @@
     "typescript": "5.9.3"
   }
 }
- 

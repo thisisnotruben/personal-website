@@ -1,12 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import { getOriginalFromId } from "@src/scripts/immich";
 
 interface Props {
-    src: string;
-    alt: string;
+    id: string;
 }
 
-const { src, alt } = Astro.props;
+const { id } = Astro.props;
 ---
 
-<Image src={src} alt={alt} width={256} height={256} />
+<img src={getOriginalFromId(id)} />

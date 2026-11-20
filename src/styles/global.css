@@ -1,9 +1,9 @@
 @import './animation.css';
-@import './entry.css';
 @import './headerFooter.css';
 @import './imageCarousel.css';
 @import './resume.css';
 @import './breadcrumb.css';
+@import 'photoswipe/dist/photoswipe.css';
 
 :root {
     --primary-bg-color: #fff3e0;
@@ -26,7 +26,6 @@ html {
 body {
     margin: 0 auto;
     min-height: 100vh;
-    width: 100%;
     max-width: 80ch;
     padding: var(--primary-spacing);
     background-color: var(--secondary-bg-color);
