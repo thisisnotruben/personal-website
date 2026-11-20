@@ -1,0 +1,47 @@
+{
+  "siteName": "Blog",
+  "nav": [
+    {
+      "title": "Home",
+      "href": "/",
+      "icon": "/house.svg"
+    },
+    {
+      "title": "About",
+      "href": "/about",
+      "icon": "/user.svg"
+    },
+    {
+      "title": "Projects",
+      "href": "/projects",
+      "icon": "/presentation.svg"
+    },
+    {
+      "title": "Resume",
+      "href": "/resume",
+      "icon": "/briefcase.svg"
+    }
+  ],
+  "footer": [
+    {
+      "title": "LinkedIn",
+      "href": "https://www.linkedin.com/in/thisisnotruben19961004",
+      "icon": "/lucide-linkedin.svg"
+    },
+    {
+      "title": "Github",
+      "href": "https://github.com/thisisnotruben",
+      "icon": "/lucide-github.svg"
+    },
+    {
+      "title": "Itch.io",
+      "href": "https://thisisnotruben.itch.io",
+      "icon": "/gamepad-2.svg"
+    },
+    {
+      "title": "Email me",
+      "href": "mailto:contact@rarlog.me",
+      "icon": "/mail.svg"
+    }
+  ]
+}

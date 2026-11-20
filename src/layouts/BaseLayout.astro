@@ -1,39 +1,66 @@
 ---
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
+import WebLink from "@src/components/WebLink.astro";
+import type { CmsConfig } from "@src/lib/tina/data";
 import "@styles/global.css";
 
-const { pageTitle } = Astro.props;
+interface Props {
+    config: CmsConfig;
+    pageTitle: string;
+}
+
+const { config, pageTitle } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <script>
-      import { initPhotoSwipe } from "@scripts/photoswipe";
-      document.addEventListener("astro:page-load", () => initPhotoSwipe());
-      initPhotoSwipe();
-    </script>
-    <Header />
-    <main>
-      <div id="page-title">
-        <h1 class="transition-slide-left">{pageTitle}</h1>
-        <slot name="page-title-right" />
-      </div>
-      <slot />
-    </main>
-    <Footer />
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{config.siteName}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <script>
+            import { initAllScripts } from "@scripts/photoswipe";
+            document.addEventListener("astro:page-load", () =>
+                initAllScripts(),
+            );
+            initAllScripts();
+        </script>
+
+        <header>
+            <nav>
+                {config.nav?.map((entry) => (
+                    <a href={entry?.href} class="weblink">
+                        <img src={entry?.icon} class="link-icon" />
+                        {entry?.title}
+                    </a>
+                ))}
+            </nav>
+        </header>
+
+        <main>
+            <div id="page-title">
+                <h1 class="transition-slide-left">{pageTitle}</h1>
+                <slot name="page-title-right" />
+            </div>
+            <slot />
+        </main>
+
+        <footer>
+            {config.footer?.map((e) => (
+                <WebLink
+                    href={e?.href ?? ""}
+                    title={e?.title ?? ""}
+                    icon={e?.icon ?? ""}
+                />
+            ))}
+        </footer>
+    </body>
 </html>

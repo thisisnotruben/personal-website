@@ -1,9 +1,10 @@
 .astro
-.git
+.wrangler
+asset
 dist
 node_modules
-asset/
 
+.git
 .dockerignore
 .gitignore
 Dockerfile

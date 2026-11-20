@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # media
 asset/
+node_modules
+.env
+tina/__generated__

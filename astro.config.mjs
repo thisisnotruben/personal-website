@@ -1,20 +1,15 @@
-import cloudflare from '@astrojs/cloudflare';
 import mdx from '@astrojs/mdx';
+import node from '@astrojs/node';
 import swup from '@swup/astro';
+import tina from '@tinacms/astro/integration';
+import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
 import { defineConfig } from 'astro/config';
-import rehypeExternalLinks from 'rehype-external-links';
 
 export default defineConfig({
-  output: "static",
-  adapter: cloudflare({
-    imageService: 'compile',
-  }),
-  integrations: [
-    swup({
-      cache: true,
-    }),
-    mdx({
-      gfm: true,
-      rehypePlugins: [[rehypeExternalLinks, { target: '_blank', rel: [] }]],
-    })],
+    output: "static",
+    adapter: node({ mode: 'standalone', }),
+    integrations: [swup({ cache: true, }), mdx(), tina()],
+    vite: {
+        plugins: [tinaAdminDevRedirect()],
+    },
 });

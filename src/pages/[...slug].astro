@@ -1,0 +1,15 @@
+---
+import PageLayout from "@src/layouts/PageLayout.astro";
+import { listPages } from "@src/lib/tina/data";
+
+export async function getStaticPaths() {
+    return (await listPages())
+        .map((node) => node._sys.filename)
+        .filter((slug) => slug != "home")
+        .map((slug) => ({ params: { slug } }));
+}
+
+const slug = (Astro.params.slug ?? "").toString();
+---
+
+<PageLayout slug={slug} />

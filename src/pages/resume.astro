@@ -1,8 +1,18 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Download } from "lucide-astro";
+import { getConfig } from "@src/lib/tina/data";
 
-const languages = ["Python", "TypeScript", "Javascript", "SQL", "Bash", "Java", "GDScript"];
+const config = (await getConfig()).data?.config ?? null;
+
+const languages = [
+    "Python",
+    "TypeScript",
+    "Javascript",
+    "SQL",
+    "Bash",
+    "Java",
+    "GDScript",
+];
 const platforms = [
     "IBM API Connect",
     "IBM Datapower",
@@ -13,26 +23,38 @@ const platforms = [
     "PostgreSQL",
     "Godot Game Engine",
 ];
-const frameworks = ["Java Spring-boot", "Angular Js", "Vue Js", "Astro", "Tailwind Css"];
-const technologies = ["Docker", "Kubernetes", "Apache Lucene", "Apache Solr", "RabbitMQ", "Qt-framework"];
+const frameworks = [
+    "Java Spring-boot",
+    "Angular Js",
+    "Vue Js",
+    "Astro",
+    "Tailwind Css",
+];
+const technologies = [
+    "Docker",
+    "Kubernetes",
+    "Apache Lucene",
+    "Apache Solr",
+    "RabbitMQ",
+    "Qt-framework",
+];
 const methodologies = ["Agile", "Scrum"];
 const certificates = ["AWS Certified Cloud Practitioner (CLF-C02)"];
 ---
 
-<BaseLayout pageTitle="Resume">
+<BaseLayout config={config} pageTitle="Resume">
     <a
         id="resume-download"
         slot="page-title-right"
         href="/resume.pdf"
         download="ruben_alvarez_reyes_resume.pdf"
     >
-        <Download class="link-icon" /> Download
+        <img src="/download.svg"> Download
     </a>
 
     <article id="resume">
         <h2>Professional Experiance</h2>
         <section>
-
             <div class="resume-job-header transition-slide-left">
                 <h3>BlueCross BlueShield</h3>
                 <p class="resume-job-location">Columbia, SC</p>
@@ -44,7 +66,9 @@ const certificates = ["AWS Certified Cloud Practitioner (CLF-C02)"];
             </div>
 
             <p class="transition-slide-right">
-                Working within API management with tools using IBM API Connect and Kong Gateway. Those platforms are hosted in OpenShift and still getting responsibilities in the team.
+                Working within API management with tools using IBM API Connect
+                and Kong Gateway. Those platforms are hosted in OpenShift and
+                still getting responsibilities in the team.
             </p>
 
             <div class="resume-job-header transition-slide-left">
@@ -148,17 +172,29 @@ const certificates = ["AWS Certified Cloud Practitioner (CLF-C02)"];
         <section class="grid-resume-skill transition-slide-left">
             <div class="cell-resume">
                 <h3>Languages</h3>
-                <ul>{languages.map((language) => <li>{language}</li>)}</ul>
+                <ul>
+                    {languages.map((language) => (
+                        <li>{language}</li>
+                    ))}
+                </ul>
             </div>
 
             <div class="cell-resume">
                 <h3>Platforms</h3>
-                <ul>{platforms.map((platform) => <li>{platform}</li>)}</ul>
+                <ul>
+                    {platforms.map((platform) => (
+                        <li>{platform}</li>
+                    ))}
+                </ul>
             </div>
 
             <div class="cell-resume">
                 <h3>Frameworks</h3>
-                <ul>{frameworks.map((framework) => <li>{framework}</li>)}</ul>
+                <ul>
+                    {frameworks.map((framework) => (
+                        <li>{framework}</li>
+                    ))}
+                </ul>
             </div>
 
             <div class="cell-resume">
@@ -169,24 +205,29 @@ const certificates = ["AWS Certified Cloud Practitioner (CLF-C02)"];
                         <li>OpenAPI</li>
                         <li>Swagger Codegen</li>
                     </ul>
-                    {technologies.map((technology) => <li>{technology}</li>)}
+                    {technologies.map((technology) => (
+                        <li>{technology}</li>
+                    ))}
                 </ul>
             </div>
 
             <div class="cell-resume">
                 <h3>Methodologies</h3>
                 <ul>
-                    {methodologies.map((methodology) => <li>{methodology}</li>)}
+                    {methodologies.map((methodology) => (
+                        <li>{methodology}</li>
+                    ))}
                 </ul>
             </div>
 
             <div class="cell-resume">
                 <h3>Certificates</h3>
-                    <ul>
-                        {certificates.map((methodology) => <li>{methodology}</li>)}
-                    </ul>
+                <ul>
+                    {certificates.map((methodology) => (
+                        <li>{methodology}</li>
+                    ))}
+                </ul>
             </div>
         </section>
-
     </article>
 </BaseLayout>

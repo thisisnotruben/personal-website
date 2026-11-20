@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    imageSet: {
+        src: string;
+        alt: string;
+    }[];
+}
+
+const { imageSet } = Astro.props;
+---
+
+<div class="carousel">
+    <div class="gallery image-carousel">
+        {imageSet.map((img) => (
+            <a
+                class="c-card"
+                href={img.src}
+                data-pswp-width="256px"
+                data-pswp-height="256"
+            >
+                <Image src={img.src} alt={img.alt} width={256} height={256} />
+            </a>
+        ))}
+    </div>
+</div>
+
+<div class="carousel-container">
+    <button class="carousel-btn prev">
+        <img src="/chevron-left.svg" />
+        Prev
+    </button>
+    <button class="carousel-btn next">
+        Next
+        <img src="/chevron-right.svg" />
+    </button>
+</div>

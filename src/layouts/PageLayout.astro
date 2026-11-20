@@ -1,0 +1,28 @@
+---
+import { getConfig, getPage } from "@src/lib/tina/data";
+import { islands } from "@src/lib/tina/islands";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import BaseLayout from "./BaseLayout.astro";
+import PageLayoutProxy from "./PageLayoutProxy.astro";
+
+interface Props {
+    slug: string;
+}
+
+const { slug } = Astro.props;
+
+const page = await getPage(slug);
+const data = page.data?.page;
+const config = (await getConfig()).data?.config ?? null;
+---
+
+<BaseLayout config={config} pageTitle={data.title}>
+    <TinaIsland
+        name="page"
+        wrapper={islands.page.wrapper}
+        params={{ slug }}
+        primary
+    >
+        <PageLayoutProxy data={data} />
+    </TinaIsland>
+</BaseLayout>

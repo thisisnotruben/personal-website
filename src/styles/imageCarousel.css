@@ -1,5 +1,36 @@
+.carousel {
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
 .image-carousel {
+    width: max-content;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.c-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+.carousel-btn {
+    width: 4rem;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem
+}
+
+.carousel-container button {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
 }
