@@ -57,13 +57,15 @@ const { config, pageTitle } = Astro.props;
         </main>
 
         <footer>
-            {config.footer?.map((e) => (
-                <WebLink
-                    href={e?.href ?? ""}
-                    title={e?.title ?? ""}
-                    icon={e?.icon ?? ""}
-                />
-            ))}
+            <div>
+                {config.footer?.map((e) => (
+                    <WebLink
+                        href={e?.href ?? ""}
+                        title={e?.title ?? ""}
+                        icon={e?.icon ?? ""}
+                    />
+                ))}
+            </div>
         </footer>
     </body>
 </html>

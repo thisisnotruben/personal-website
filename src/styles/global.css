@@ -83,24 +83,21 @@ li+li {
 }
 
 @media only screen and (max-width: 600px) and (orientation: portrait) {
-    .content {
+    header, footer {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
 
     nav,
-    footer {
+    footer>div {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    .weblink {
-        padding-left: 15%;
-    }
-
-    .weblink+.weblink {
-        padding-top: 0.3em;
+    .weblink:nth-child(even) {
+        padding-top: 0.5rem;
+        padding-left: 2rem;
     }
 
     .project-entries {

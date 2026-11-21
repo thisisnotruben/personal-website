@@ -3,13 +3,13 @@ header {
   border-bottom: var(--secondary-spacing) dashed var(--border-color);
 }
 
-footer {
+footer>div {
   padding-top: var(--body-padding);
   border-top: var(--secondary-spacing) dashed var(--border-color);
 }
 
 nav,
-footer {
+footer>div {
   display: flex;
   justify-content: space-evenly;
 }
