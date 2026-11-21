@@ -5,6 +5,8 @@
 @import './imageCarousel.css';
 @import './projectEntry.css';
 @import './resume.css';
+@import './table.css';
+@import './tableCard.css';
 @import 'photoswipe/dist/photoswipe.css';
 
 :root {
@@ -110,4 +112,13 @@ li+li {
         width: 80%;
     }
 
+    .card-table {
+        display: flex;
+    }
+
+    .card-table .card,
+    .card-table table {
+        width: 100%;
+        float: none !important;
+    }
 }

@@ -28,6 +28,7 @@ const src = getOriginalFromId(id);
         >
             <img src={thumbnail ? getThumbnailFromId(id) : src} />
         </a>
-        <figcaption>{caption}</figcaption>
+        {caption != "" && <figcaption>{caption}</figcaption>}
+        <slot />
     </figure>
 </div>

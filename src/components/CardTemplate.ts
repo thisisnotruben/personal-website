@@ -4,7 +4,7 @@ export const CardTemplate: Template = {
     name: 'CardBlock',
     label: 'Card',
     fields: [
-        { name: 'id', label: 'Id', type: 'string', required: true },
+        { name: 'id', label: 'Image ID', type: 'string', required: true },
         { name: 'thumbnail', label: 'Render thumbmail?', type: 'boolean', required: true },
         { name: 'float', label: 'Float', type: 'string', options: ['left', 'right'], required: true },
         {

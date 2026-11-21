@@ -16,14 +16,12 @@ const config = (await getConfig()).data?.config ?? null;
 ---
 
 <BaseLayout config={config} pageTitle={data.title}>
-    <div slot="breadcrumbs" aria-label="Breadcrumb" class="breadcrumb">
+    <div slot="breadcrumbs" class="breadcrumb">
         <ol>
             <li>
                 <a href="/projects">Projects</a>
             </li>
-            <li>
-                <span aria-current="page">{data.title}</span>
-            </li>
+            <li>{data.title}</li>
         </ol>
     </div>
 

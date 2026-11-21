@@ -2,9 +2,11 @@
 import type { CustomComponentsMap } from "@tinacms/astro";
 import TinaMarkdown, { tinaField } from "@tinacms/astro/TinaMarkdown.astro";
 import CardBlock from "./CardBlock.astro";
+import CardTableBlock from "./CardTableBlock.astro";
 import ImgBlock from "./ImgBlock.astro";
 import ImgCarouselBlock from "./ImgCarouselBlock.astro";
 import PageNavBlock from "./PageNavBlock.astro";
+import TableBlock from "./TableBlock.astro";
 import VideoBlock from "./VideoBlock.astro";
 
 const { data } = Astro.props;
@@ -14,6 +16,8 @@ const components: CustomComponentsMap = {
     PageNavBlock,
     VideoBlock,
     CardBlock,
+    TableBlock,
+    CardTableBlock,
 };
 ---
 

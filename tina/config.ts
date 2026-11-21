@@ -1,11 +1,13 @@
+import { CardTableTemplate } from '@src/components/CardTableTemplate';
 import { CardTemplate } from '@src/components/CardTemplate';
 import { ImgCarouselTemplate } from '@src/components/ImgCarouselTemplate';
 import { ImgTemplate } from '@src/components/ImgTemplate';
 import { PageNavTemplate } from '@src/components/PageNavTemplate';
+import { TableTemplate } from '@src/components/TableTemplate';
 import { VideoTemplate } from '@src/components/VideoTemplate';
 import { defineConfig } from 'tinacms';
 
-const blocks = [ImgCarouselTemplate, ImgTemplate, PageNavTemplate, VideoTemplate, CardTemplate,]
+const blocks = [ImgCarouselTemplate, ImgTemplate, PageNavTemplate, VideoTemplate, CardTemplate, TableTemplate, CardTableTemplate]
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -180,7 +182,7 @@ export default defineConfig({
                     {
                         type: 'string',
                         name: 'cover',
-                        label: 'Cover (External URL)',
+                        label: 'Cover ID',
                     },
                     {
                         type: 'boolean',
@@ -243,12 +245,7 @@ export default defineConfig({
                     {
                         type: 'string',
                         name: 'cover',
-                        label: 'Cover (External URL)',
-                    },
-                    {
-                        type: 'string',
-                        name: 'thumbnail',
-                        label: 'Thumbnail (External URL)',
+                        label: 'Cover ID',
                     },
                     {
                         type: 'boolean',

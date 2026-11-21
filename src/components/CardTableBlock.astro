@@ -1,0 +1,26 @@
+---
+import CardBlock from "./CardBlock.astro";
+import TableBlock from "./TableBlock.astro";
+
+interface Props {
+    id: string;
+    thumbnail: boolean;
+    float: string;
+    entry: {
+        key: string;
+        value: {
+            text: string;
+            isLink: boolean;
+            link: string;
+        };
+    }[];
+}
+
+const { id, thumbnail, float, entry } = Astro.props;
+---
+
+<div class="card-table">
+    <CardBlock id={id} thumbnail={thumbnail} float={float} caption="">
+        <TableBlock entry={entry} />
+    </CardBlock>
+</div>

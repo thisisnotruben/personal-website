@@ -1,0 +1,19 @@
+table {
+    background-color: var(--primary-bg-color);
+    padding: calc(var(--body-padding) / 2);
+    border: var(--secondary-spacing) solid var(--border-color);
+    width: 33%;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--secondary-bg-color);
+}
+
+td {
+    text-align: right;
+}
+
+tr td:first-child {
+    padding-right: 1rem;
+    text-wrap: nowrap;
+}
