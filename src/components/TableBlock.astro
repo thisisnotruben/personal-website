@@ -1,5 +1,6 @@
 ---
 interface Props {
+    float: string;
     entry: {
         key: string;
         value: {
@@ -10,17 +11,19 @@ interface Props {
     }[];
 }
 
-const { entry } = Astro.props;
+const { entry, float } = Astro.props;
 ---
 
-<table>
+<table style=`float: ${float}`>
     <tbody>
         {entry.map((e) => (
             <tr>
                 <td>{e.key}</td>
                 <td>
                     {e.value.isLink ? (
-                        <a href={e.value.link}>{e.value.text}</a>
+                        <a href={e.value.link} target="_blank">
+                            {e.value.text}
+                        </a>
                     ) : (
                         e.value.text
                     )}

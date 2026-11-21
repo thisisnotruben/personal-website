@@ -4,6 +4,7 @@ export const TableTemplate: Template = {
     name: 'TableBlock',
     label: 'Table',
     fields: [
+        { name: 'float', label: 'Float', type: 'string', options: ['left', 'right'], required: true },
         {
             name: 'entry', label: 'Entry', type: 'object', required: true, list: true, fields: [
                 { name: 'key', label: 'Key', type: 'string', required: true },

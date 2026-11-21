@@ -21,6 +21,6 @@ const { id, thumbnail, float, entry } = Astro.props;
 
 <div class="card-table">
     <CardBlock id={id} thumbnail={thumbnail} float={float} caption="">
-        <TableBlock entry={entry} />
+        <TableBlock float={float} entry={entry} />
     </CardBlock>
 </div>
