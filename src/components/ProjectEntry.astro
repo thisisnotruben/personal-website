@@ -1,0 +1,21 @@
+---
+import { getOriginalFromId } from "@src/scripts/immich";
+import type { PageNavType } from "@src/scripts/types";
+
+interface Props {
+    payload: PageNavType;
+}
+
+const { payload } = Astro.props;
+---
+
+<figure class="card">
+    <h3>{payload.title}</h3>
+    <div>
+        {payload.cover != "" && <img src={getOriginalFromId(payload.cover)} />}
+        <figcaption>{payload.description}</figcaption>
+        <a href={payload.href}>
+            <span>Read more</span>
+        </a>
+    </div>
+</figure>

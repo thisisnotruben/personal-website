@@ -1,0 +1,21 @@
+.project-entries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.project-entries .card {
+    width: 33%;
+}
+
+.project-entries a {
+    display: flex;
+    justify-content: right;
+}
+
+.project-entries figcaption {
+    font-style: normal;
+    font-size: medium;
+    text-align: left;
+}

@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gr;
     padding-top: 0.5rem;
+    clear: both;
 }
 
 .carousel a {

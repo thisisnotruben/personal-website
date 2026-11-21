@@ -142,11 +142,6 @@ export default defineConfig({
                         required: true,
                     },
                     {
-                        type: 'string',
-                        name: 'cover',
-                        label: 'Cover (External URL)',
-                    },
-                    {
                         type: "rich-text",
                         name: "body",
                         label: "Body",
@@ -186,11 +181,6 @@ export default defineConfig({
                         type: 'string',
                         name: 'cover',
                         label: 'Cover (External URL)',
-                    },
-                    {
-                        type: 'string',
-                        name: 'thumbnail',
-                        label: 'Thumbnail (External URL)',
                     },
                     {
                         type: 'boolean',

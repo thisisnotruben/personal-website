@@ -7,21 +7,27 @@ import {
 
 interface Props {
     id: string;
+    thumbnail: boolean;
+    float: string;
+    caption: string;
 }
 
-const { id } = Astro.props;
+const { id, thumbnail, float, caption } = Astro.props;
 const { width, height } = await getOriginalSize(id);
+
+const src = getOriginalFromId(id);
 ---
 
-<div class="card transition-slide-right">
-    <div class="gallery">
+<div class="card transition-slide-right" style=`float: ${float}`>
+    <figure class="gallery">
         <a
-            href={getOriginalFromId(id)}
+            href={src}
             data-pswp-width={width}
             data-pswp-height={height}
             target="_blank"
         >
-            <img src={getThumbnailFromId(id)} />
+            <img src={thumbnail ? getThumbnailFromId(id) : src} />
         </a>
-    </div>
+        <figcaption>{caption}</figcaption>
+    </figure>
 </div>

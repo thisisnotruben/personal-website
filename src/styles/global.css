@@ -1,8 +1,10 @@
 @import './animation.css';
+@import './breadcrumb.css';
+@import './card.css';
 @import './headerFooter.css';
 @import './imageCarousel.css';
+@import './projectEntry.css';
 @import './resume.css';
-@import './breadcrumb.css';
 @import 'photoswipe/dist/photoswipe.css';
 
 :root {
@@ -21,6 +23,9 @@
 html {
     font-family: Roboto;
     background-color: var(--primary-bg-color);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 body {
@@ -95,4 +100,14 @@ li+li {
     .weblink+.weblink {
         padding-top: 0.3em;
     }
+
+    .project-entries {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-entries .card {
+        width: 80%;
+    }
+
 }
