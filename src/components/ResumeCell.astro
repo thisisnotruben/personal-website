@@ -1,0 +1,17 @@
+---
+interface Props {
+    header: string;
+    contentList: string[];
+}
+
+const { header, contentList } = Astro.props;
+---
+
+<div class="cell-resume">
+    <h3>{header}</h3>
+    <ul>
+        {contentList.map((c) => (
+            <li>{c}</li>
+        ))}
+    </ul>
+</div>

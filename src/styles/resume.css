@@ -1,3 +1,8 @@
+#resume h2 {
+    text-align: center;
+    border-bottom: var(--secondary-spacing) solid var(--border-color);
+}
+
 #resume-download {
     display: flex;
     align-items: center;
@@ -15,26 +20,6 @@
     color: var(--link-active-color);
 }
 
-.grid-resume-education {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.cell-resume {
-    flex-wrap: wrap;
-}
-
-.grid-resume-skill {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-#resume h2 {
-    text-align: center;
-    border-bottom: var(--secondary-spacing) solid var(--border-color);
-}
-
 .resume-job-header {
     display: flex;
     justify-content: space-between;
@@ -43,4 +28,10 @@
 .resume-job-location {
     text-decoration: underline;
     text-underline-offset: 0.25rem;
+}
+
+.grid-resume-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
