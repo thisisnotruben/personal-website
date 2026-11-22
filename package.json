@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tinacms dev -c \"astro dev\"",
-    "build": "tinacms build && astro build",
-    "preview": "astro preview",
-    "docker": "docker build -t my_website .",
+    "build": "tinacms dev -c \"astro build\"",
+    "docker": "docker build -t git.rarlog.me/root/my_website .",
     "push": "docker push git.rarlog.me/root/my_website"
   },
   "keywords": [],
@@ -18,7 +16,6 @@
   "dependencies": {
     "@astrojs/mdx": "^7.0.8",
     "@astrojs/node": "^11.1.14",
-    "@immich/sdk": "^3.4.2",
     "@swup/astro": "^1.8.0",
     "@tinacms/astro": "^0.8.0",
     "astro": "^7.4.12",

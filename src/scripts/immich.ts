@@ -1,31 +1,25 @@
-import { getAssetInfo, getAssetOriginalPath, getAssetThumbnailPath, init } from "@immich/sdk";
+const PHOTO_URL = import.meta.env.PUBLIC_PHOTO_URL + '/api'
 
-const API_KEY = 'xpf16ff5dvvOPqqkm1kMD3dcnsGjhkF7wfaNBdy2Vk';
-const BASE_URL = 'https://photos.rarlog.me/api'
-const PHOTO_URL = 'https://web-photos.rarlog.me/api'
-
-init({ baseUrl: BASE_URL, apiKey: API_KEY });
-
-export type imageSizeType = {
-    width: number;
-    height: number;
-}
+export type imageSizeType = { width: number; height: number; }
 
 export function getOriginalFromId(id: string) {
-    return `${PHOTO_URL}${getAssetOriginalPath(id)}`;
+    // https://api.immich.app/endpoints/assets/downloadAsset
+    return `${PHOTO_URL}/assets/${id}/original`;
 }
 
 export function getThumbnailFromId(id: string) {
-    return `${PHOTO_URL}${getAssetThumbnailPath(id)}`;
+    // https://api.immich.app/endpoints/assets/viewAsset
+    return `${PHOTO_URL}/assets/${id}/thumbnail`;
 }
 
 export async function getOriginalSize(id: string) {
-    let info = await getAssetInfo({ id: id })
-
-    let size: imageSizeType = {
-        width: info.width ?? 0,
-        height: info.height ?? 0
-    }
-
-    return size
+    // https://api.immich.app/endpoints/assets/getAssetInfo
+    let size: imageSizeType = { width: 0, height: 0 }
+    await fetch(`${PHOTO_URL}/assets/${id}`).then(async r =>
+        await r.json().then(b => {
+            size.width = b['width'];
+            size.height = b['height'];
+        })
+    );
+    return size;
 }

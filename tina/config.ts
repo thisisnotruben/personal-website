@@ -1,5 +1,6 @@
 import { CardTableTemplate } from '@src/components/CardTableTemplate';
 import { CardTemplate } from '@src/components/CardTemplate';
+import { codeBlockTemplate } from '@src/components/CodeBlockTemplate';
 import { ImgCarouselTemplate } from '@src/components/ImgCarouselTemplate';
 import { ImgTemplate } from '@src/components/ImgTemplate';
 import { PageNavTemplate } from '@src/components/PageNavTemplate';
@@ -7,7 +8,7 @@ import { TableTemplate } from '@src/components/TableTemplate';
 import { VideoTemplate } from '@src/components/VideoTemplate';
 import { defineConfig } from 'tinacms';
 
-const blocks = [ImgCarouselTemplate, ImgTemplate, PageNavTemplate, VideoTemplate, CardTemplate, TableTemplate, CardTableTemplate]
+const blocks = [ImgCarouselTemplate, ImgTemplate, PageNavTemplate, VideoTemplate, CardTemplate, TableTemplate, CardTableTemplate, codeBlockTemplate, ]
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =

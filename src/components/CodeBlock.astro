@@ -1,0 +1,13 @@
+---
+import type { CodeLanguage } from "astro";
+import { Code } from "astro:components";
+
+interface Props {
+    language: CodeLanguage;
+    code: string;
+}
+
+const { language, code } = Astro.props;
+---
+
+<Code lang={language} code={code} />

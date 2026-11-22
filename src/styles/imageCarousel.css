@@ -10,6 +10,10 @@
     display: none;
 }
 
+.carousel img {
+    width: 100%;
+}
+
 .carousel-nav {
     display: flex;
     justify-content: center;

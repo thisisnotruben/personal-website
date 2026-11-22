@@ -1,13 +1,6 @@
 .astro
-.wrangler
 asset
-dist
 node_modules
-
+dist
 .git
-.dockerignore
 .gitignore
-Dockerfile
-package-lock.json
-README.md
-*.log

@@ -1,9 +1,10 @@
 FROM node:lts-alpine AS runtime
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
+RUN npm ci
 
-RUN npm install
+COPY . .
 RUN npm run build
 
 ENV HOST=0.0.0.0
