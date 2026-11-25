@@ -1,5 +1,5 @@
 ---
-import { listProjects } from "@src/lib/tina/data";
+import { listBlogs, listProjects } from "@src/lib/tina/data";
 import type { PageNavType } from "@src/scripts/types";
 import ProjectEntry from "./ProjectEntry.astro";
 
@@ -13,20 +13,29 @@ var entries: PageNavType[] = [];
 
 switch (collectionRef) {
     case "projects":
-        (await listProjects()).forEach((p) =>
-            entries.push({
-                href: `${collectionRef}/${p._sys.filename}`,
-                title: p.title,
-                cover: p.cover ?? "",
-                description: p.description ?? "",
-            }),
-        );
+        (await listProjects())
+            .filter((node) => node.published)
+            .forEach((p) =>
+                entries.push({
+                    href: `${collectionRef}/${p._sys.filename}`,
+                    title: p.title,
+                    cover: p.cover ?? "",
+                    description: p.description ?? "",
+                }),
+            );
         break;
-    // case "blog":
-    //     (await listBlogs()).forEach((p) =>
-    //         filenameMap.set(p._sys.filename, { title: p.title }),
-    //     );
-    //     break;
+    case "blog":
+        (await listBlogs())
+            .filter((node) => node.published)
+            .forEach((p) =>
+                entries.push({
+                    href: `${collectionRef}/${p._sys.filename}`,
+                    title: p.title,
+                    cover: p.cover ?? "",
+                    description: p.description ?? "",
+                }),
+            );
+        break;
 }
 ---
 

@@ -1,5 +1,5 @@
 {
-  "siteName": "Rarlog Blog",
+  "siteName": "Rarlog",
   "nav": [
     {
       "title": "Home",
@@ -15,6 +15,11 @@
       "title": "Projects",
       "href": "/projects",
       "icon": "/presentation.svg"
+    },
+    {
+      "title": "Blog",
+      "href": "/blog",
+      "icon": "/book-open-text.svg"
     },
     {
       "title": "Resume",

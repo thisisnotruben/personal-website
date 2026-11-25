@@ -3,6 +3,7 @@
 @import './card.css';
 @import './codeBlock.css';
 @import './headerFooter.css';
+@import './map.css';
 @import './imageCarousel.css';
 @import './projectEntry.css';
 @import './resume.css';
@@ -84,7 +85,9 @@ li+li {
 }
 
 @media only screen and (max-width: 600px) and (orientation: portrait) {
-    header, footer {
+
+    header,
+    footer {
         display: flex;
         justify-content: center;
         align-items: center;

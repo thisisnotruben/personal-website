@@ -1,0 +1,36 @@
+---
+import { getBlog, getConfig } from "@src/lib/tina/data";
+import { islands } from "@src/lib/tina/islands";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import BaseLayout from "./BaseLayout.astro";
+import BlogLayoutProxy from "./BlogLayoutProxy.astro";
+
+interface Props {
+    slug: string;
+}
+
+const { slug } = Astro.props;
+const blog = await getBlog(slug);
+const data = blog.data?.blog;
+const config = (await getConfig()).data?.config ?? null;
+---
+
+<BaseLayout config={config} pageTitle={data.title}>
+    <div slot="breadcrumbs" class="breadcrumb">
+        <ol>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+            <li>{data.title}</li>
+        </ol>
+    </div>
+
+    <TinaIsland
+        name="blog"
+        wrapper={islands.blog.wrapper}
+        params={{ slug }}
+        primary
+    >
+        <BlogLayoutProxy data={data} />
+    </TinaIsland>
+</BaseLayout>

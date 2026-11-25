@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+import { getConfig } from "@src/lib/tina/data";
+
+const config = (await getConfig()).data?.config ?? null;
+
+type MapMarkerResponseDto = {
+    id: string;
+    lat: number;
+    lon: number;
+    city: string;
+    state: string;
+    country: string;
+};
+
+const latlngs: number[][] = [];
+await fetch("https://photos.rarlog.me/api/map/markers", {
+    headers: { "x-api-key": import.meta.env.IMMICH_MAP_API_KEY },
+}).then((r) =>
+    r.json().then((entries: MapMarkerResponseDto[]) => {
+        entries.forEach((e) => {
+            latlngs.push([e.lat, e.lon]);
+        });
+    }),
+);
+---
+
+<script type="module" define:vars={{ latlngs }}>
+    import * as L from "leaflet";
+    import { MarkerClusterGroup } from "leaflet.markercluster";
+
+    const map = new L.Map("map", {
+        center: [14.0, 0.0],
+        zoom: 2,
+    });
+
+    new L.TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
+        map,
+    );
+
+    const markers = new MarkerClusterGroup();
+    markers.addLayers(latlngs.map((latlng) => new L.Marker(latlng)));
+    map.addLayer(markers);
+</script>
+
+<div id="map" />

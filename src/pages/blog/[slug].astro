@@ -1,0 +1,15 @@
+---
+import BlogLayout from "@src/layouts/BlogLayout.astro";
+import { listBlogs } from "@src/lib/tina/data";
+
+export async function getStaticPaths() {
+    return (await listBlogs())
+        // .filter((node) => node.published)
+        .map((node) => node._sys.filename)
+        .map((slug) => ({ params: { slug } }));
+}
+
+const slug = (Astro.params.slug ?? "").toString();
+---
+
+<BlogLayout slug={slug} />
